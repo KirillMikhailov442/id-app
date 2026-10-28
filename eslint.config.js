@@ -65,6 +65,8 @@ export default defineConfig([
         },
       ],
       "no-restricted-imports": noRestrictedImports(),
+      "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+      "@typescript-eslint/no-empty-object-type": ["error", { allowInterfaces: "with-single-extends" }],
       "padding-line-between-statements": [
         "error",
         {
@@ -162,6 +164,22 @@ export default defineConfig([
         {
           component: true,
           html: true,
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/index.ts"],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "Program > :not(ExportNamedDeclaration):not(ExportAllDeclaration)",
+          message: "index.ts должен содержать только реэкспорты public API.",
+        },
+        {
+          selector: "ExportNamedDeclaration[source=null]",
+          message: "Объявления и локальные экспорты вынесите в именованные файлы; index.ts — только для реэкспортов.",
         },
       ],
     },
