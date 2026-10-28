@@ -1,0 +1,11 @@
+export const AVATAR_GRID_SIZE = 5;
+export const AVATAR_PADDING = 0.5;
+export const AVATAR_VIEWBOX_SIZE = AVATAR_GRID_SIZE + AVATAR_PADDING * 2;
+export const AVATAR_BACKGROUND = "#f0f0f0";
+export const AVATAR_SATURATION = 60;
+export const AVATAR_LIGHTNESS = 48;
+export const AVATAR_HUE_RANGE = 360;
+export const AVATAR_HASH_OFFSET = 2166136261;
+export const AVATAR_HASH_PRIME = 16777619;
+export const AVATAR_HASH_MIXER = 0x45d9f3b;
+export const AVATAR_HASH_SHIFT = 16;
