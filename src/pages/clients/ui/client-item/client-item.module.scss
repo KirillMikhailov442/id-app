@@ -1,0 +1,74 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.name,
+.uri {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.uri {
+  font:
+    12.5px ui-monospace,
+    Menlo,
+    Consolas,
+    monospace;
+  line-height: 1.6;
+}
+
+.scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.scope {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--muted);
+  font:
+    500 12px ui-monospace,
+    Menlo,
+    Consolas,
+    monospace;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.disabled {
+  .name,
+  .uri,
+  .scope {
+    opacity: 0.5;
+  }
+}
+
+.actionCell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .status {
+    min-height: layout.$touch-target-size;
+  }
+}

@@ -1,0 +1,30 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.page {
+  @include layout.page;
+}
+
+.header {
+  @include layout.header;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .create {
+    min-height: layout.$touch-target-size;
+  }
+}

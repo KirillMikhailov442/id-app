@@ -1,0 +1,58 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.scopeFieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 28px;
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  &:has([data-state="checked"]) {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+  }
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+.scopeCheckbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .scope {
+    min-height: layout.$touch-target-size;
+  }
+}

@@ -1,0 +1,73 @@
+@use "../styles/clients-layout" as layout;
+
+.tableWrapper {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+.table {
+  width: 100%;
+  min-width: layout.$table-min-width;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  th {
+    height: 44px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted-foreground);
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  tbody tr:first-child td {
+    border-top: 0;
+  }
+
+  tbody tr:hover {
+    background: color-mix(in srgb, var(--muted) 55%, transparent);
+  }
+}
+
+.nameColumn {
+  width: layout.$name-column-width;
+}
+
+.uriColumn {
+  width: layout.$uri-column-width;
+}
+
+.statusColumn {
+  width: layout.$status-column-width;
+}
+
+.actionsColumn {
+  width: layout.$actions-column-width;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

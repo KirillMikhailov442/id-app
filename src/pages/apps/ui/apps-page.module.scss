@@ -1,0 +1,112 @@
+@use "@shared/styles" as breakpoints;
+
+$touch-target-size: 44px;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted-foreground);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding-block: 20px;
+  border-top: 1px solid var(--border);
+
+  &:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.details {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.description,
+.date {
+  margin: 4px 0 0;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.notice {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.revoke {
+  color: var(--destructive);
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .page {
+    gap: 16px;
+  }
+
+  .card {
+    padding-block: 16px;
+  }
+
+  .cardContent {
+    padding-inline: 16px;
+  }
+
+  .item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+  }
+
+  .revoke {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: $touch-target-size;
+  }
+}
