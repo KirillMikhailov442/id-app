@@ -1,0 +1,42 @@
+@use "@shared/styles" as breakpoints;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: env(safe-area-inset-top, 0px) 24px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: breakpoints.$tablet) {
+  .header {
+    gap: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .brand {
+    gap: 6px;
+    font-size: 14px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

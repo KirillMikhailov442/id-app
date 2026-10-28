@@ -1,0 +1,63 @@
+@use "@shared/styles" as breakpoints;
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.link.active {
+  background: var(--muted);
+  color: var(--foreground);
+}
+@media (max-width: breakpoints.$tablet) {
+  .sidebar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 20;
+    flex-direction: row;
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--border);
+    background: var(--background);
+  }
+  .link {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: auto;
+    height: auto;
+    padding: 6px 4px;
+    font-size: 11px;
+  }
+}
