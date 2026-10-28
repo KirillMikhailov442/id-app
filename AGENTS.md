@@ -32,10 +32,13 @@ id-app is the client-side application.
 - Prefer solutions that fit the existing project architecture.
 - Clarify ambiguities before writing code when they prevent a correct implementation.
 - Always update `index.ts` when adding a new public export.
+- Use `index.ts` only as a public API barrel for re-exports. Put type/interface declarations, constants, components, models, and logic in dedicated named files; never define them in `index.ts`.
 - Generate complete files. Never use placeholders such as `// ... rest of code`.
 - Use `@id-app/shadcn` components whenever an appropriate component exists.
 - Never leave unfinished implementation stubs such as `TODO: implement later`.
 - Follow ESLint and TypeScript checks.
+- Always describe component props with a named `interface` in the component file. Do not use type aliases or inline object types for component props.
+- Store other types and interfaces in a `types/` folder with an `index.ts` public API (for example, `pages/profile/types/`). Schema-inferred form types may stay in the schema file (for example, `LoginFormValues`). Remove `types/` when it has no remaining definitions. Use `interface` for object shapes; reserve `type` for unions, computed, inferred, and other types that cannot be expressed as an interface.
 - Do not introduce unnecessary dependencies.
 - Decompose code: prefer many small files over one growing file. Extract subcomponents, hooks, helpers and constants into their own files instead of keeping them inline.
 - Do not spread magic numbers or magic values across the code. Extract them into named constants in a dedicated constants file (`<name>.const.ts` or a `const` file near the code that uses them).
@@ -67,8 +70,10 @@ For `entities`, `features`, `widgets`, and `pages`:
 ├── ui/
 ├── model/
 │   ├── <name>.const.ts
-│   ├── <name>.model.ts
-│   └── types.ts
+│   └── <name>.model.ts
+├── types/
+│   ├── <name>.types.ts
+│   └── index.ts
 ├── api/
 ├── hooks/
 └── lib/
@@ -76,7 +81,8 @@ For `entities`, `features`, `widgets`, and `pages`:
 
 - `index.ts` is the public API and is required.
 - `ui/` contains UI components.
-- `model/` contains state, constants, and types.
+- `model/` contains state and constants.
+- `types/` contains non-component types and interfaces; component props interfaces stay in their component files.
 - `api/` contains API services.
 - `hooks/` contains custom hooks; one hook per file.
 - `lib/` contains utilities and helpers.
