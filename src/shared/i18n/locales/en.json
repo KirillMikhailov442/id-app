@@ -1,0 +1,285 @@
+{
+  "modal": {
+    "defaultTitle": "Dialog",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "close": "Close"
+  },
+  "confirm": {
+    "title": "Confirmation",
+    "description": "Are you sure you want to continue?",
+    "apply": "Confirm",
+    "cancel": "Cancel"
+  },
+  "common": {
+    "brand": "Mikh SSO",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password"
+  },
+  "login": {
+    "title": "Sign in",
+    "description": "Enter your email and password to continue",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in...",
+    "invalidCredentials": "Incorrect email or password.",
+    "serverUnavailable": "The server is temporarily unavailable. Please try again later.",
+    "registerPrompt": "Don't have an account?",
+    "registerLink": "Sign up",
+    "validation": {
+      "emailRequired": "Enter your email",
+      "passwordRequired": "Enter your password",
+      "email": "Enter a valid email",
+      "passwordMinLength": "Password must be at least {{min}} characters long",
+      "passwordPattern": "Use uppercase and lowercase Latin letters, a digit and a special character, without spaces"
+    }
+  },
+  "register": {
+    "title": "Sign up",
+    "description": "Create an account to continue",
+    "firstNameLabel": "First name",
+    "firstNamePlaceholder": "Your first name",
+    "lastNameLabel": "Last name",
+    "lastNamePlaceholder": "Your last name",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "passwordHint": "{{min}}–{{max}} characters: uppercase and lowercase Latin letters, a digit and a special character, no spaces",
+    "agreePrefix": "I agree to the",
+    "agreeLink": "processing of personal data",
+    "submit": "Create account",
+    "submitting": "Creating account...",
+    "submitError": "Failed to sign up. Please try again later.",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Sign in",
+    "validation": {
+      "firstName": "Enter your first name",
+      "lastName": "Enter your last name",
+      "emailAlreadyRegistered": "This email is already registered",
+      "email": "Enter a valid email",
+      "minLength": "Must be at least {{min}} characters long",
+      "maxLength": "Must be no more than {{max}} characters long",
+      "passwordPattern": "Use uppercase and lowercase Latin letters, a digit and a special character, without spaces",
+      "agreeRequired": "You have to agree to the processing of personal data"
+    }
+  },
+  "consent": {
+    "title": "“{{app}}” wants access to your data",
+    "description": "The app will receive the following data:",
+    "permissionsLabel": "Requested permissions",
+    "permissions": {
+      "profile": {
+        "title": "First and last name",
+        "description": "To show your profile"
+      },
+      "email": {
+        "title": "Email",
+        "description": "For contact and signing in to the app"
+      },
+      "identifier": {
+        "title": "User ID",
+        "description": "To recognize you the next time you sign in"
+      }
+    },
+    "allow": "Allow",
+    "deny": "Deny",
+    "fine": "By clicking “Allow”, you consent to sharing this data with {{app}} ({{domain}}).",
+    "result": {
+      "allow": "Access allowed",
+      "deny": "Request denied"
+    },
+    "reconsider": "Change decision"
+  },
+  "status": {
+    "blocked": {
+      "title": "Your account is blocked",
+      "description": "Access to your account and connected apps is restricted. If you believe this is a mistake, contact the service administrator to find out why and whether access can be restored.",
+      "backToLogin": "Back to sign in"
+    },
+    "home": "Go to home",
+    "loading": {
+      "title": "Loading…",
+      "description": "Please wait while we get everything ready."
+    },
+    "networkError": {
+      "title": "Server unavailable",
+      "description": "We couldn't connect to the server. Check your internet connection or try again later.",
+      "retry": "Try again",
+      "retrying": "Trying again…"
+    },
+    "notFound": {
+      "title": "404 — Page not found",
+      "description": "The page may have been removed, or the address may be incorrect."
+    },
+    "accountError": {
+      "title": "Unable to load data",
+      "description": "Try loading this page again. If the problem persists, please come back a little later."
+    }
+  },
+  "session": {
+    "loading": "Restoring session…",
+    "restoreError": "Unable to connect to the server. Please try again.",
+    "retry": "Try again"
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Your personal account information.",
+    "details": "Personal details",
+    "name": "First name",
+    "surname": "Last name",
+    "email": "Email",
+    "emailStatus": "Email verification",
+    "confirmed": "Verified",
+    "unconfirmed": "Not verified",
+    "emailVerified": "Email verified",
+    "emailUnverified": "Email not verified",
+    "id": "User ID",
+    "createdAt": "Joined",
+    "updatedAt": "Last updated",
+    "unavailable": "Unavailable",
+    "loading": "Loading profile",
+    "edit": {
+      "button": "Edit profile",
+      "title": "Edit profile",
+      "description": "Update your name or email address.",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving…",
+      "success": "Profile updated",
+      "error": "Unable to save changes. Please try again."
+    },
+    "loadError": "Unable to load your profile. Please try again."
+  },
+  "apps": {
+    "description": "Apps you have granted access to your data",
+    "listLabel": "Connected apps",
+    "demoNotice": "Demo data. Revoking access is not available yet.",
+    "access": "Access: {{permissions}}",
+    "connectedSince": "Connected since",
+    "permissions": {
+      "profile": "first and last name",
+      "email": "email",
+      "identifier": "user ID"
+    },
+    "revoke": "Revoke access",
+    "revokeLabel": "Revoke access for {{name}}",
+    "revokePlaceholder": "Revoking access is not available yet. This is a placeholder.",
+    "revokeError": "Unable to revoke access. Please try again.",
+    "confirm": {
+      "title": "Revoke access?",
+      "description": "{{name}} will lose access to your data. You will need to grant permission to connect it again."
+    }
+  },
+  "clients": {
+    "loading": "Loading clients",
+    "edit": "Edit",
+    "actionsLabel": "Actions for {{name}}",
+    "status": "Status",
+    "actions": "Actions",
+    "title": "OAuth 2.0 clients",
+    "description": "Apps that use Mikh SSO for sign-in",
+    "listLabel": "OAuth clients",
+    "create": "Create client",
+    "createTitle": "New client",
+    "editTitle": "Edit client",
+    "formDescription": "Configure the client and its access scopes.",
+    "name": "Name",
+    "scopesHint": "Select the permissions this client may request. You can leave the list empty.",
+    "save": "Save",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "enabledToast": "Client enabled",
+    "disabledToast": "Client disabled",
+    "created": "Client created",
+    "saved": "Client updated",
+    "deleted": "Client deleted",
+    "editLabel": "Edit {{name}}",
+    "deleteLabel": "Delete {{name}}",
+    "delete": "Delete",
+    "deleteTitle": "Delete client?",
+    "deleteDescription": "{{name}} will be permanently deleted.",
+    "actionError": "Unable to complete the action. Please try again.",
+    "emptyTitle": "No clients yet",
+    "emptyDescription": "Create your first client to configure an app.",
+    "validation": {
+      "name": "Enter a name of at least 2 characters",
+      "scopes": "Select scopes from the available list",
+      "location": "Enter one valid HTTP or HTTPS address without fragments or credentials",
+      "secret": "Enter a secret of {{min}}–{{max}} characters",
+      "maxScopes": "Select no more than {{max}} scopes"
+    },
+    "location": "Redirect URL",
+    "locationHint": "One HTTP or HTTPS address without fragments or credentials.",
+    "secret": "Client secret",
+    "secretHint": "12–64 characters. Store the secret securely; it cannot be retrieved later.",
+    "loadError": "Unable to load clients or scopes. Please try again.",
+    "scopesSaveError": "Client saved, but scopes could not be assigned. Submit again to retry.",
+    "noLocation": "Not specified",
+    "pagination": {
+      "label": "Clients pagination",
+      "page": "Page {{page}} of {{total}}",
+      "total": "Total: {{total}}",
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "security": {
+    "confirmLogout": {
+      "title": "Sign out of this session?",
+      "description": "Do you want to end the session on {{device}}?",
+      "allTitle": "Sign out of all sessions?",
+      "allDescription": "Do you want to end all sessions, including the current one? You will need to sign in again."
+    },
+    "sessionEnded": "Session ended",
+    "sessions": "Active sessions",
+    "current": "Current",
+    "endSession": "Sign out",
+    "endSessionLabel": "Sign out of {{device}} session",
+    "endAllSessions": "Sign out of all sessions",
+    "password": {
+      "label": "Password",
+      "description": "Manage your account password",
+      "change": "Change",
+      "title": "Change password",
+      "modalDescription": "Enter your current and new password.",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "save": "Change password",
+      "mismatch": "Passwords do not match",
+      "samePassword": "New password must differ from your current password",
+      "success": "Password changed",
+      "invalidCurrent": "Current password is incorrect",
+      "error": "Unable to change your password. Please try again.",
+      "saving": "Changing password…"
+    },
+    "os": "OS",
+    "browser": "Browser",
+    "deviceType": "Device type",
+    "createdAt": "First sign-in",
+    "lastUsedAt": "Last active",
+    "actions": "Actions",
+    "unknownDevice": "Unknown device",
+    "loading": "Loading sessions…",
+    "loadError": "Unable to load sessions.",
+    "retry": "Retry",
+    "empty": "No active sessions."
+  },
+  "account": {
+    "navigation": "Account navigation",
+    "profile": "Profile",
+    "security": "Security",
+    "apps": "Apps",
+    "clients": "Clients",
+    "logout": "Sign out"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Toggle theme",
+    "account": "Account",
+    "profile": "Profile",
+    "logout": "Sign out",
+    "loggingOut": "Signing out…",
+    "logoutError": "Failed to sign out. Please try again."
+  }
+}

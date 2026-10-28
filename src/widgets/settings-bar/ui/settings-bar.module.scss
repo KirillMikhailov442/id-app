@@ -1,0 +1,55 @@
+@use "@shared/styles" as breakpoints;
+
+.bar {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+}
+
+.bar .theme {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.bar .language {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.bar.header {
+  align-items: center;
+  position: static;
+  z-index: auto;
+
+  .language,
+  .theme {
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .theme {
+    width: 36px;
+  }
+  .language {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .bar.header {
+    gap: 6px;
+
+    .language {
+      width: 88px;
+      gap: 4px;
+      padding-inline: 8px;
+      font-size: 12px;
+    }
+  }
+}
