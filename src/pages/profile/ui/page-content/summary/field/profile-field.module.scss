@@ -1,0 +1,15 @@
+@use "../../../styles/profile-layout";
+
+.field {
+  @include profile-layout.field;
+}
+
+.label {
+  color: var(--muted-foreground);
+  overflow-wrap: anywhere;
+}
+
+.value {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
