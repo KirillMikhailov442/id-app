@@ -1,1 +1,2 @@
-export * from "./__root";
+export { rootRoute } from "./__root";
+export { routeTree } from "./route-tree";

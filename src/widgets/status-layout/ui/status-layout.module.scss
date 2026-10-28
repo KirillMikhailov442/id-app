@@ -1,0 +1,44 @@
+.page {
+  display: grid;
+  min-height: 100svh;
+  box-sizing: border-box;
+  place-items: center;
+  padding: 96px 24px;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  margin: 12px 0 0;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}

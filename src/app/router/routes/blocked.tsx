@@ -1,13 +1,13 @@
 import { createRoute } from "@tanstack/react-router";
 
-import { MainPage } from "@pages/main";
+import { BlockedPage } from "@pages/blocked";
 
 import { AppRoute } from "@shared/config";
 
 import { rootRoute } from "./__root";
 
-export const mainRoute = createRoute({
+export const blockedRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: AppRoute.Main,
-  component: MainPage,
+  path: AppRoute.Blocked,
+  component: BlockedPage,
 });

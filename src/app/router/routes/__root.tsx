@@ -2,9 +2,22 @@ import { createRootRoute, Outlet } from "@tanstack/react-router";
 
 import { AppProvider } from "@app/providers";
 
-import { mainRoute } from "./main";
+import { LoadingPage } from "@pages/loading";
+import { NotFoundPage } from "@pages/not-found";
+import { RouteErrorPage } from "@pages/route-error";
 
 export const rootRoute = createRootRoute({
+  pendingComponent: () => (
+    <AppProvider>
+      <LoadingPage />
+    </AppProvider>
+  ),
+  errorComponent: (props) => (
+    <AppProvider>
+      <RouteErrorPage {...props} />
+    </AppProvider>
+  ),
+  notFoundComponent: NotFoundPage,
   component: () => {
     return (
       <AppProvider>
@@ -13,4 +26,3 @@ export const rootRoute = createRootRoute({
     );
   },
 });
-rootRoute.addChildren([mainRoute]);
