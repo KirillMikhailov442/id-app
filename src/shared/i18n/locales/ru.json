@@ -313,7 +313,13 @@
     "security": "Безопасность",
     "apps": "Приложения",
     "clients": "Клиенты",
-    "logout": "Выйти"
+    "logout": "Выйти",
+    "users": "Пользователи",
+    "adminClients": "Все клиенты",
+    "groups": {
+      "account": "Аккаунт",
+      "administration": "Администрирование"
+    }
   },
   "settings": {
     "language": "Язык",

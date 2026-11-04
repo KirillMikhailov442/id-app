@@ -313,7 +313,13 @@
     "security": "Security",
     "apps": "Apps",
     "clients": "Clients",
-    "logout": "Sign out"
+    "logout": "Sign out",
+    "users": "Users",
+    "adminClients": "All clients",
+    "groups": {
+      "account": "Account",
+      "administration": "Administration"
+    }
   },
   "settings": {
     "language": "Language",

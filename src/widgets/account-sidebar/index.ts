@@ -1,2 +1,3 @@
 export { AccountSidebar } from "./ui";
-export { ACCOUNT_NAVIGATION } from "./model/account-sidebar.const";
+export { useAccountNavigation } from "./hooks/use-account-navigation";
+export type { SidebarNavigationGroup, SidebarNavigationItem } from "./types";
