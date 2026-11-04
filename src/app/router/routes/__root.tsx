@@ -2,14 +2,15 @@ import { createRootRoute, Outlet } from "@tanstack/react-router";
 
 import { AppProvider } from "@app/providers";
 
-import { LoadingPage } from "@pages/loading";
 import { NotFoundPage } from "@pages/not-found";
 import { RouteErrorPage } from "@pages/route-error";
+
+import { LoadingScreen } from "@shared/ui";
 
 export const rootRoute = createRootRoute({
   pendingComponent: () => (
     <AppProvider>
-      <LoadingPage />
+      <LoadingScreen />
     </AppProvider>
   ),
   errorComponent: (props) => (

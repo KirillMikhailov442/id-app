@@ -1,10 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import { Spinner } from "@shared/ui";
+import s from "./loading-screen.module.scss";
+import { Spinner } from "./spinner";
 
-import s from "./loading-page.module.scss";
-
-export const LoadingPage = () => {
+export const LoadingScreen = () => {
   const { t } = useTranslation();
 
   return (

@@ -1,14 +1,17 @@
 import { createRouter } from "@tanstack/react-router";
 
-import { LoadingPage } from "@pages/loading";
 import { NotFoundPage } from "@pages/not-found";
 import { RouteErrorPage } from "@pages/route-error";
 
+import { LoadingScreen } from "@shared/ui";
+
+import { DEFAULT_PENDING_MS } from "./router.const";
 import { routeTree } from "./routes";
 
 export const router = createRouter({
   routeTree,
-  defaultPendingComponent: LoadingPage,
+  defaultPendingMs: DEFAULT_PENDING_MS,
+  defaultPendingComponent: LoadingScreen,
   defaultErrorComponent: RouteErrorPage,
   defaultNotFoundComponent: NotFoundPage,
 });
