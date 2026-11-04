@@ -16,6 +16,10 @@
     "emailPlaceholder": "Enter your email",
     "passwordPlaceholder": "Enter your password"
   },
+  "googleLogin": {
+    "or": "or",
+    "submit": "Sign in with Google"
+  },
   "login": {
     "title": "Sign in",
     "description": "Enter your email and password to continue",

@@ -1,14 +1,4 @@
-import {
-  CreditCard,
-  Envelope,
-  ILLUSTRATION_COLORS,
-  Key,
-  outlineStyle,
-  Plus,
-  SpeechBubble,
-  Star,
-  UserBadge,
-} from "@shared/ui";
+import { CreditCard, Envelope, ILLUSTRATION_COLORS, Key, outlineStyle, Plus, SpeechBubble, Star } from "@shared/ui";
 
 const { blue, green, red, yellow, purple } = ILLUSTRATION_COLORS;
 
@@ -18,9 +8,6 @@ export const RegisterIllustrationHero = () => (
     <circle cx={300} cy={84} fill={blue} opacity={0.22} r={56} />
     <g transform="translate(70 104) rotate(-8) scale(0.6)">
       <CreditCard fill={yellow} strokeWidth={6.5} />
-      <g transform="translate(82 -50)">
-        <UserBadge fill={blue} strokeWidth={6.5} />
-      </g>
     </g>
     <g transform="translate(190 92) rotate(5) scale(0.62)">
       <Envelope badgeFill={green} fill={purple} strokeWidth={6.5} />

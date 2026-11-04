@@ -50,3 +50,9 @@
     max-width: 420px;
   }
 }
+
+@media (max-width: breakpoints.$mobile) {
+  .hero {
+    display: none;
+  }
+}

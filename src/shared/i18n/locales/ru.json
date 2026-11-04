@@ -16,6 +16,10 @@
     "emailPlaceholder": "Введите эл. почту",
     "passwordPlaceholder": "Введите пароль"
   },
+  "googleLogin": {
+    "or": "или",
+    "submit": "Войти через Google"
+  },
   "login": {
     "title": "Вход в аккаунт",
     "description": "Введите эл. почту и пароль, чтобы продолжить",

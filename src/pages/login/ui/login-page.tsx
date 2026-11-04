@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { Fingerprint } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+import { GoogleLogin } from "@features/google-login";
+
 import { AppRoute } from "@shared/config";
 
 import {
@@ -89,6 +91,8 @@ export const LoginPage: FC = () => {
               </Button>
             </form>
           </Form>
+
+          <GoogleLogin disabled={isSubmitting} />
 
           <p className={s.register}>
             {t("login.registerPrompt")}{" "}

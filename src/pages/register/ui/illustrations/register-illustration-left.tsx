@@ -1,4 +1,4 @@
-import { CreditCard, ILLUSTRATION_COLORS, Key, outlineStyle, Plus, Shield, Star, UserBadge } from "@shared/ui";
+import { CreditCard, ILLUSTRATION_COLORS, Key, outlineStyle, Plus, Shield, Star } from "@shared/ui";
 
 const { blue, green, red, yellow, purple } = ILLUSTRATION_COLORS;
 
@@ -10,9 +10,6 @@ export const RegisterIllustrationLeft = () => (
     <Plus size={30} x={310} y={300} />
     <g transform="translate(190 240) rotate(-6) scale(1.12)">
       <CreditCard fill={yellow} />
-      <g transform="translate(84 -52)">
-        <UserBadge fill={blue} />
-      </g>
     </g>
     <g transform="translate(130 500) rotate(8) scale(0.8)">
       <Shield checkPath="M-34 8L-8 34L38-22" fill={red} shadowOffset={11} strokeWidth={5} />
