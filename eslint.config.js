@@ -29,9 +29,9 @@ const noRestrictedImports = (patterns = []) => [
     patterns: [...publicApiPatterns, ...patterns],
   },
 ];
-const restrictUpperLayers = (layers) => ({
+const restrictLayers = (layers, message = "Нижний слой не может импортировать код из вышестоящего слоя.") => ({
   regex: `^@(${layers.join("|")})(?:/|$)`,
-  message: "Нижний слой не может импортировать код из вышестоящего слоя.",
+  message,
 });
 export default defineConfig([
   globalIgnores(["dist"]),
@@ -207,36 +207,47 @@ export default defineConfig([
     },
   },
   {
-    files: ["src/pages/**/*.{ts,tsx}"],
+    files: ["packages/*/src/**/*.{ts,tsx}"],
     rules: {
-      "no-restricted-imports": noRestrictedImports([restrictUpperLayers(["app"])]),
+      "no-restricted-imports": noRestrictedImports([
+        restrictLayers(
+          ["app", "pages", "widgets", "features", "entities", "shared"],
+          "Workspace-пакет не может импортировать внутренние модули приложения."
+        ),
+      ]),
     },
   },
   {
-    files: ["src/widgets/**/*.{ts,tsx}"],
+    files: ["apps/web/src/pages/**/*.{ts,tsx}"],
     rules: {
-      "no-restricted-imports": noRestrictedImports([restrictUpperLayers(["app", "pages"])]),
+      "no-restricted-imports": noRestrictedImports([restrictLayers(["app"])]),
     },
   },
   {
-    files: ["src/features/**/*.{ts,tsx}"],
+    files: ["apps/web/src/widgets/**/*.{ts,tsx}"],
     rules: {
-      "no-restricted-imports": noRestrictedImports([restrictUpperLayers(["app", "pages", "widgets"])]),
+      "no-restricted-imports": noRestrictedImports([restrictLayers(["app", "pages"])]),
     },
   },
   {
-    files: ["src/entities/**/*.{ts,tsx}"],
+    files: ["apps/web/src/features/**/*.{ts,tsx}"],
     rules: {
-      "no-restricted-imports": noRestrictedImports([restrictUpperLayers(["app", "pages", "widgets", "features"])]),
+      "no-restricted-imports": noRestrictedImports([restrictLayers(["app", "pages", "widgets"])]),
     },
   },
   {
-    files: ["src/shared/**/*.{ts,tsx}"],
+    files: ["apps/web/src/entities/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": noRestrictedImports([restrictLayers(["app", "pages", "widgets", "features"])]),
+    },
+  },
+  {
+    files: ["apps/web/src/shared/**/*.{ts,tsx}"],
     rules: {
       "no-restricted-imports": [
         "error",
         {
-          patterns: [...publicApiPatterns, restrictUpperLayers(["app", "pages", "widgets", "features", "entities"])],
+          patterns: [...publicApiPatterns, restrictLayers(["app", "pages", "widgets", "features", "entities"])],
         },
       ],
     },
