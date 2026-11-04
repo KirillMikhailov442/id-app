@@ -10,8 +10,7 @@ class _ModalService {
 
     return new Promise((resolve) => {
       this.confirmResolve = resolve;
-      ModalModel.setConfirmConfig(config);
-      ModalModel.open(ModalId.Confirm);
+      ModalModel.open(ModalId.Confirm, config);
     });
   };
 
@@ -19,7 +18,6 @@ class _ModalService {
     const resolve = this.confirmResolve;
     this.confirmResolve = null;
     ModalModel.close(ModalId.Confirm);
-    ModalModel.setConfirmConfig(null);
     resolve?.(result);
   };
 

@@ -1,20 +1,11 @@
-import { ModalId, useModal, useModalPresence } from "@shared/modal";
+import { ModalId, useModal } from "@shared/modal";
 
 import { EditProfileForm } from "./edit-profile-form";
 
 export const EditProfileModal = () => {
-  const { isOpen, params: user, close } = useModal(ModalId.ProfileEdit);
+  const { mounted, params: user, close, onExitComplete } = useModal(ModalId.ProfileEdit);
 
-  const presence = useModalPresence(isOpen, user);
+  if (!mounted || user === undefined) return null;
 
-  if (!presence.mounted || presence.value === undefined) return null;
-
-  return (
-    <EditProfileForm
-      key={presence.value.id}
-      onClose={close}
-      onExitComplete={presence.onExitComplete}
-      user={presence.value}
-    />
-  );
+  return <EditProfileForm key={user.id} onClose={close} onExitComplete={onExitComplete} user={user} />;
 };

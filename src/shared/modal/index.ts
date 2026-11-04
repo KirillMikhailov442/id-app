@@ -14,8 +14,9 @@ export type { ModalLayer } from "./types";
 
 export { ModalActions } from "./ui/modal-actions";
 
-export { useModalPresence } from "./hooks/use-modal-presence";
 export { useModalHistory } from "./hooks/use-modal-history";
 
 export { DialogTemplate } from "./ui/dialog-template";
 export { BottomSheetTemplate } from "./ui/bottom-sheet-template";
+
+export { useModalPresence } from "./hooks/use-modal-presence";

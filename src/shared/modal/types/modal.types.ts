@@ -3,7 +3,7 @@ import type { SessionUser } from "@shared/api";
 import type { ModalId } from "../model/modal.const";
 
 export type ConfirmResult = "ok" | null;
-export type ModalSize = "s" | "m" | "l";
+export type ModalSize = "s" | "m" | "l" | "xl";
 
 export interface ModalState {
   id: ModalId;
@@ -19,6 +19,6 @@ export interface ConfirmConfig {
 
 export interface ModalParams {
   [ModalId.ChangePassword]: undefined;
-  [ModalId.Confirm]: undefined;
+  [ModalId.Confirm]: ConfirmConfig;
   [ModalId.ProfileEdit]: SessionUser;
 }

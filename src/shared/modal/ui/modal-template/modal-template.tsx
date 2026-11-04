@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { Button } from "@id-app/shadcn";
 
-import { useModal } from "../../hooks/use-modal";
+import { useModals } from "../../hooks/use-modals";
 import type { ModalId, ModalSize } from "../../types";
 import { ModalActions } from "../modal-actions";
 import { ResponsiveModal } from "../responsive-modal";
@@ -45,12 +45,13 @@ export const ModalTemplate = ({
   hideFooter = false,
 }: ModalTemplateProps) => {
   const { t } = useTranslation();
-  const { isOpen, close } = useModal(id);
+  const { modals, close } = useModals();
+  const isOpen = modals.some((modal) => modal.id === id && modal.isOpen);
   const handleClose = () => {
     if (applyLoading) return;
 
     onClose?.();
-    close();
+    close(id);
   };
   const handleCancel = () => {
     if (applyLoading) return;

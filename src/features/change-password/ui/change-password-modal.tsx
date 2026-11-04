@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from "@entities/user";
 
-import { ModalActions, ModalId, ModalTemplate, useModal, useModalPresence } from "@shared/modal";
+import { ModalActions, ModalId, ModalTemplate, useModal } from "@shared/modal";
 
 import { Button, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from "@id-app/shadcn";
 
@@ -11,12 +11,12 @@ import { CHANGE_PASSWORD_FIELDS } from "../model/change-password.const";
 import s from "./change-password.module.scss";
 
 interface ChangePasswordFormProps {
+  close: () => void;
   onExitComplete: () => void;
 }
 
-const ChangePasswordForm = ({ onExitComplete }: ChangePasswordFormProps) => {
+const ChangePasswordForm = ({ close, onExitComplete }: ChangePasswordFormProps) => {
   const { t } = useTranslation();
-  const { close } = useModal(ModalId.ChangePassword);
   const { form, handleSubmit, isSubmitting } = useChangePasswordForm(close);
 
   return (
@@ -63,9 +63,7 @@ const ChangePasswordForm = ({ onExitComplete }: ChangePasswordFormProps) => {
 };
 
 export const ChangePasswordModal = () => {
-  const { isOpen } = useModal(ModalId.ChangePassword);
+  const { close, mounted, onExitComplete } = useModal(ModalId.ChangePassword);
 
-  const presence = useModalPresence(isOpen, undefined);
-
-  return presence.mounted ? <ChangePasswordForm onExitComplete={presence.onExitComplete} /> : null;
+  return mounted ? <ChangePasswordForm close={close} onExitComplete={onExitComplete} /> : null;
 };

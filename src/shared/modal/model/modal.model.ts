@@ -2,16 +2,11 @@ import { atom } from "jotai";
 
 import { jotaiStore } from "@shared/lib";
 
-import type { ConfirmConfig, ModalId, ModalParams, ModalState } from "../types";
+import type { ModalId, ModalParams, ModalState } from "../types";
 
 class _ModalModel {
   public readonly modalsAtom = atom<ModalState[]>([]);
   public readonly modalParamsAtom = atom<Partial<ModalParams>>({});
-  public readonly confirmConfigAtom = atom<ConfirmConfig | null>(null);
-
-  public setConfirmConfig = (config: ConfirmConfig | null): void => {
-    jotaiStore.set(this.confirmConfigAtom, config);
-  };
 
   public setParams = <Id extends ModalId>(id: Id, params: ModalParams[Id] | undefined): void => {
     jotaiStore.set(this.modalParamsAtom, (previous) => ({ ...previous, [id]: params }));
