@@ -1,0 +1,23 @@
+.search {
+  width: 100%;
+  max-width: 420px;
+}
+
+.control {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.input {
+  padding-left: 36px;
+}

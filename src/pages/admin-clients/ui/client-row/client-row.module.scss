@@ -1,0 +1,16 @@
+.badge {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.id {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.actions {
+  text-align: right;
+}

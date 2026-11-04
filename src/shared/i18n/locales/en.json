@@ -421,5 +421,48 @@
       "pagination": "User applications pagination",
       "total": "Total grants: {{total}}"
     }
+  },
+  "adminClients": {
+    "title": "Clients",
+    "description": "Manage OAuth 2.0 clients of all users.",
+    "search": {
+      "label": "Search clients",
+      "emptyTitle": "No clients found",
+      "emptyDescription": "Try changing your search query."
+    },
+    "columns": {
+      "name": "Name",
+      "id": "Client ID",
+      "isActive": "Status",
+      "createdAt": "Created",
+      "actions": "Actions"
+    },
+    "active": "Enabled",
+    "inactive": "Disabled",
+    "enable": "Enable",
+    "disable": "Disable",
+    "delete": "Delete",
+    "enableTitle": "Enable this client?",
+    "enableDescription": "Client {{name}} will be able to participate in sign-in flows again.",
+    "disableTitle": "Disable this client?",
+    "disableDescription": "Client {{name}} will no longer be able to participate in sign-in flows.",
+    "deleteTitle": "Delete this client?",
+    "deleteDescription": "Client {{name}} will be permanently deleted. This action cannot be undone.",
+    "enabledToast": "Client enabled",
+    "disabledToast": "Client disabled",
+    "deletedToast": "Client deleted",
+    "actionsLabel": "Actions for {{name}}",
+    "actionError": "Failed to update the client. Please try again.",
+    "emptyTitle": "No clients yet",
+    "emptyDescription": "OAuth 2.0 clients created by users will appear here.",
+    "loadError": "Unable to load clients.",
+    "retry": "Retry",
+    "pagination": {
+      "label": "Clients pagination",
+      "total": "Total clients: {{total}}",
+      "page": "{{page}} of {{total}}",
+      "previous": "Previous",
+      "next": "Next"
+    }
   }
 }

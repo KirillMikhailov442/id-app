@@ -1,0 +1,65 @@
+$actions-column-width: 100px;
+$table-min-width: 860px;
+
+.wrapper {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+.table {
+  width: 100%;
+  min-width: $table-min-width;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  th,
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th {
+    height: 44px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted-foreground);
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  th:last-child {
+    width: $actions-column-width;
+  }
+
+  tbody tr:first-child td {
+    border-top: 0;
+  }
+
+  tbody tr:hover {
+    background: color-mix(in srgb, var(--muted) 55%, transparent);
+  }
+}
+
+.skeleton {
+  width: 100%;
+  min-width: 32px;
+  height: 24px;
+}
