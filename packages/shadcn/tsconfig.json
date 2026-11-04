@@ -6,7 +6,6 @@
     "moduleResolution": "bundler",
     "moduleDetection": "force",
     "jsx": "react-jsx",
-    "types": ["vite/client"],
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

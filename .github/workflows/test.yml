@@ -29,10 +29,10 @@ jobs:
         run: pnpm run format:check
 
       - name: Typecheck
-        run: pnpm exec tsc -b
+        run: pnpm typecheck
 
       - name: Install Chromium for browser tests
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm --filter @id-app/web exec playwright install --with-deps chromium
 
       - name: Run tests
         run: pnpm test --exclude e2e/pages.browser.test.tsx

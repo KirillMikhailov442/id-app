@@ -9,6 +9,7 @@ import { defineConfig } from "vitest/config";
 import { captureOAuthCallback } from "./e2e/commands/capture-oauth-callback.ts";
 import { mockTokenRefresh } from "./e2e/commands/mock-token-refresh.ts";
 
+const ENV_DIR = fileURLToPath(new URL("../..", import.meta.url));
 const DEV_PORT_FALLBACK = 3000;
 const PREVIEW_PORT_FALLBACK = 3001;
 const API_PROXY_PATH = "/api";
@@ -16,7 +17,7 @@ const ASSETS_PROXY_PATH = "/assets";
 const BUILD_ASSETS_DIR = "static";
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, ENV_DIR, "");
 
   const proxy = env.API_URL
     ? {
@@ -26,6 +27,7 @@ export default defineConfig(({ mode }) => {
     : undefined;
 
   return {
+    envDir: ENV_DIR,
     plugins: [
       react(),
       tailwindcss(),
