@@ -12,7 +12,6 @@ const registration = {
   surname: "Smith",
   email: "alice@example.test",
   password: "Valid123!",
-  agree: true,
 };
 
 describe("registration validation", () => {
@@ -32,7 +31,6 @@ describe("registration validation", () => {
     ["surname", "   "],
     ["email", "invalid"],
     ["password", registration.password.padEnd(MAX_PASSWORD_LENGTH + 1, "a")],
-    ["agree", false],
   ])("rejects invalid %s", (field, value) => {
     const result = schema.safeParse({ ...registration, [field]: value });
 

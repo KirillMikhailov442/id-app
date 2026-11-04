@@ -36,5 +36,4 @@ export const createRegisterSchema = (t: TFunction) =>
       .min(MIN_PASSWORD_LENGTH, t("register.validation.minLength", { min: MIN_PASSWORD_LENGTH }))
       .max(MAX_PASSWORD_LENGTH, t("register.validation.maxLength", { max: MAX_PASSWORD_LENGTH }))
       .regex(PASSWORD_PATTERN, t("register.validation.passwordPattern")),
-    agree: z.boolean().refine((value) => value, t("register.validation.agreeRequired")),
   });

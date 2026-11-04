@@ -16,7 +16,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Checkbox,
   Form,
   FormControl,
   FormDescription,
@@ -28,14 +27,12 @@ import {
 } from "@id-app/shadcn";
 
 import { useRegisterForm } from "../hooks/use-register-form";
-import { AGREEMENT_LINK } from "../model/register.const";
 import { RegisterIllustrations } from "./illustrations/register-illustrations";
 import s from "./register-page.module.scss";
 
 export const RegisterPage: FC = () => {
   const { t } = useTranslation();
   const { form, isSubmitting, handleSubmit } = useRegisterForm();
-  const isAgreed = form.watch("agree");
 
   return (
     <main className={s.page}>
@@ -140,38 +137,13 @@ export const RegisterPage: FC = () => {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="agree"
-                render={({ field }) => (
-                  <FormItem className={s.agree}>
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        className={s.agreeCheckbox}
-                        onCheckedChange={(checked) => field.onChange(checked === true)}
-                      />
-                    </FormControl>
-
-                    <span className={s.agreeText}>
-                      {t("register.agreePrefix")}{" "}
-                      <a className={s.agreeLink} href={AGREEMENT_LINK}>
-                        {t("register.agreeLink")}
-                      </a>
-                    </span>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button className={s.submit} disabled={!isAgreed || isSubmitting} type="submit">
+              <Button className={s.submit} disabled={isSubmitting} type="submit">
                 {isSubmitting ? t("register.submitting") : t("register.submit")}
               </Button>
             </form>
           </Form>
 
-          <GoogleLogin disabled={!isAgreed || isSubmitting} />
+          <GoogleLogin disabled={isSubmitting} />
 
           <p className={s.login}>
             {t("register.loginPrompt")}{" "}

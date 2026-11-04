@@ -49,8 +49,6 @@
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "passwordHint": "{{min}}–{{max}} characters: uppercase and lowercase Latin letters, a digit and a special character, no spaces",
-    "agreePrefix": "I agree to the",
-    "agreeLink": "processing of personal data",
     "submit": "Create account",
     "submitting": "Creating account...",
     "submitError": "Failed to sign up. Please try again later.",
@@ -63,8 +61,7 @@
       "email": "Enter a valid email",
       "minLength": "Must be at least {{min}} characters long",
       "maxLength": "Must be no more than {{max}} characters long",
-      "passwordPattern": "Use uppercase and lowercase Latin letters, a digit and a special character, without spaces",
-      "agreeRequired": "You have to agree to the processing of personal data"
+      "passwordPattern": "Use uppercase and lowercase Latin letters, a digit and a special character, without spaces"
     }
   },
   "consent": {
