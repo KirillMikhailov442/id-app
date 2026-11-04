@@ -36,7 +36,7 @@ class _AuthSessionService {
 
       const user = await UserService.getProfile();
       this.assertRevision(revision);
-      this.setUser(user);
+      this.finishLogin(user);
     } catch (error) {
       if (revision === this.revision) {
         this.clear();
@@ -48,8 +48,7 @@ class _AuthSessionService {
 
   public completeRegistration = ({ accessToken, user }: RegisterResponse): void => {
     ++this.revision;
-    SessionModel.setAccessToken(accessToken);
-    this.setUser(user);
+    this.finishLogin(user, accessToken);
   };
 
   public logout = (): Promise<void> => this.endSession(() => AuthService.logout());
@@ -76,13 +75,13 @@ class _AuthSessionService {
 
   private clear = (): void => {
     ++this.revision;
-    SessionModel.clear();
+    SessionModel.logout();
     jotaiStore.set(AuthSessionModel.errorAtom, null);
     jotaiStore.set(AuthSessionModel.statusAtom, "ready");
   };
 
-  private setUser(user: SessionUser): void {
-    SessionModel.setUser(user);
+  private finishLogin(user: SessionUser, accessToken?: string): void {
+    SessionModel.login(user, accessToken);
     jotaiStore.set(AuthSessionModel.errorAtom, null);
     jotaiStore.set(AuthSessionModel.statusAtom, "ready");
   }
@@ -103,7 +102,7 @@ class _AuthSessionService {
 
       const user = await UserService.getProfile();
       this.assertRevision(revision);
-      this.setUser(user);
+      this.finishLogin(user);
     } catch (error) {
       if (revision !== this.revision) {
         return;

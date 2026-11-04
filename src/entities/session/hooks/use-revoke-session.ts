@@ -24,7 +24,7 @@ export const useRevokeSession = (options?: UseMutationOptions<void, Error, Sessi
       await queryClient.cancelQueries({ queryKey });
 
       if (session.isCurrent) {
-        SessionModel.clear();
+        SessionModel.logout();
         queryClient.removeQueries({ queryKey });
       } else {
         queryClient.setQueryData<Session[]>(queryKey, (sessions) => sessions?.filter(({ id }) => id !== session.id));

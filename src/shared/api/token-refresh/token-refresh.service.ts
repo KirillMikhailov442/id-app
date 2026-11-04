@@ -82,7 +82,7 @@ export class TokenRefreshService {
         error.response?.status === HttpStatus.Unauthorized &&
         jotaiStore.get(SessionModel.accessTokenAtom) === accessToken
       ) {
-        SessionModel.clear();
+        SessionModel.logout();
       }
 
       throw error;
@@ -126,7 +126,7 @@ export class TokenRefreshService {
       return data.accessToken;
     } catch (error) {
       if (isCurrentSession() && isSessionExpiredError(error)) {
-        SessionModel.clear();
+        SessionModel.logout();
       }
 
       throw error;
