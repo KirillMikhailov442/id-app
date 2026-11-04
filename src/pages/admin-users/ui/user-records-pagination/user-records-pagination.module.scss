@@ -1,0 +1,21 @@
+@use "@shared/styles" as breakpoints;
+
+.pagination,
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination {
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

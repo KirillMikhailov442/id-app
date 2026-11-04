@@ -1,0 +1,21 @@
+@use "../styles/profile-layout";
+
+.page {
+  @include profile-layout.page;
+}
+
+.profile {
+  @include profile-layout.profile;
+}
+
+.information {
+  @include profile-layout.information;
+}
+
+.avatar {
+  @include profile-layout.avatar;
+
+  display: block;
+  height: auto;
+  overflow: hidden;
+}

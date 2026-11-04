@@ -1,0 +1,16 @@
+.avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.badge {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.actions {
+  text-align: right;
+}

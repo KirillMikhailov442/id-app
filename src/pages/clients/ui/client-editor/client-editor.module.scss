@@ -1,0 +1,22 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 14px;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .form input {
+    min-height: layout.$touch-target-size;
+    font-size: 16px;
+  }
+}

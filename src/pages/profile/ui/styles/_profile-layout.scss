@@ -1,0 +1,79 @@
+@use "@shared/styles" as breakpoints;
+
+$avatar-size: 180px;
+$mobile-avatar-size: 112px;
+
+@mixin page {
+  padding-block: 24px;
+
+  @media (max-width: breakpoints.$mobile) {
+    padding-block: 8px;
+  }
+}
+
+@mixin profile {
+  display: grid;
+  grid-template-columns: clamp(112px, 18vw, $avatar-size) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(24px, 4vw, 48px);
+
+  @media (max-width: breakpoints.$mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@mixin avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  @media (max-width: breakpoints.$mobile) {
+    width: $mobile-avatar-size;
+  }
+}
+
+@mixin information {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+  padding-top: 8px;
+
+  @media (max-width: breakpoints.$mobile) {
+    gap: 32px;
+    padding-top: 0;
+  }
+}
+
+@mixin details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  @media (max-width: breakpoints.$mobile) {
+    gap: 24px;
+  }
+}
+
+@mixin fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+@mixin field {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.9fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 20px;
+  min-width: 0;
+  line-height: 1.6;
+
+  @media (max-width: breakpoints.$mobile) {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: 16px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,31 @@
+@use "@shared/styles" as breakpoints;
+
+$touch-target-size: 44px;
+$table-min-width: 780px;
+$name-column-width: 22%;
+$uri-column-width: 28%;
+$status-column-width: 144px;
+$actions-column-width: 80px;
+
+@mixin page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: breakpoints.$mobile) {
+    gap: 16px;
+  }
+}
+
+@mixin header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: breakpoints.$mobile) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

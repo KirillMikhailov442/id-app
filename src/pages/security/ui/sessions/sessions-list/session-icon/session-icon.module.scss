@@ -1,0 +1,45 @@
+.icon {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--muted-foreground);
+  color: #fff;
+}
+
+.logo {
+  display: block;
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.chrome {
+  background: #1a9c55;
+}
+
+.firefox {
+  background: #e66000;
+}
+
+.safari {
+  background: #007aff;
+}
+
+.apple {
+  background: #555;
+}
+
+.windows {
+  background: #0078d4;
+}
+
+.android {
+  background: #269e48;
+}
+
+.linux {
+  background: #b88700;
+}

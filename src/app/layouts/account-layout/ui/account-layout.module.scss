@@ -1,0 +1,41 @@
+@use "@shared/styles" as breakpoints;
+
+.layout {
+  min-height: 100svh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    Inter,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.content {
+  min-width: 0;
+}
+
+@media (max-width: breakpoints.$tablet) {
+  .layout {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 20px 16px 24px;
+  }
+}

@@ -1,0 +1,21 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.action {
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .action {
+    min-width: layout.$touch-target-size;
+    min-height: layout.$touch-target-size;
+  }
+
+  .menuItem {
+    min-height: layout.$touch-target-size;
+  }
+}

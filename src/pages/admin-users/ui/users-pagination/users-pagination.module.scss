@@ -1,0 +1,40 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/admin-users-layout" as layout;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.total,
+.page {
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls {
+    justify-content: space-between;
+    gap: 8px;
+
+    > button {
+      min-height: layout.$touch-target-size;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+$table-min-width: 1200px;
+
+.content {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.wrapper {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+.table {
+  width: 100%;
+  min-width: $table-min-width;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  th,
+  td {
+    overflow: hidden;
+    padding: 12px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th {
+    color: var(--muted-foreground);
+    font-weight: 500;
+  }
+
+  td {
+    border-top: 1px solid var(--border);
+  }
+}
+
+.state {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.skeleton {
+  height: 24px;
+}

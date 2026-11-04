@@ -1,0 +1,55 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/security-layout" as layout;
+
+.heading {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted-foreground);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.danger {
+  color: var(--destructive);
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .card {
+    padding-block: 16px;
+  }
+
+  .cardContent {
+    padding-inline: 16px;
+  }
+
+  .heading {
+    margin-bottom: 16px;
+  }
+
+  .actions {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+
+    > button {
+      width: 100%;
+      min-height: layout.$touch-target-size;
+      height: auto;
+      white-space: normal;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.form,
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 14px;
+}

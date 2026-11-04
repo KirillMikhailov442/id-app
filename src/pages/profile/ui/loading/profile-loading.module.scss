@@ -1,0 +1,66 @@
+@use "../styles/profile-layout";
+
+.page {
+  @include profile-layout.page;
+}
+
+.profile {
+  @include profile-layout.profile;
+}
+
+.avatar {
+  @include profile-layout.avatar;
+}
+
+.information {
+  @include profile-layout.information;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.details {
+  @include profile-layout.details;
+}
+
+.fields {
+  @include profile-layout.fields;
+}
+
+.field {
+  @include profile-layout.field;
+}
+
+.name {
+  width: 320px;
+  max-width: 100%;
+  height: 39px;
+}
+
+.status {
+  width: 140px;
+  height: 22px;
+}
+
+.heading {
+  width: 160px;
+  max-width: 100%;
+  height: 24px;
+}
+
+.label {
+  width: 120px;
+  max-width: 100%;
+  height: 22px;
+}
+
+.value {
+  width: 180px;
+  max-width: 100%;
+  height: 22px;
+}

@@ -1,0 +1,90 @@
+@use "@shared/styles" as breakpoints;
+
+@use "../styles/clients-layout" as layout;
+
+.loading {
+  @include layout.page;
+}
+
+.tableWrapper {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.table {
+  min-width: layout.$table-min-width;
+}
+
+.heading,
+.row {
+  display: grid;
+  grid-template-columns:
+    layout.$name-column-width layout.$uri-column-width
+    minmax(0, 1fr) layout.$status-column-width layout.$actions-column-width;
+  align-items: center;
+
+  > * {
+    margin-inline: 16px;
+  }
+}
+
+.heading {
+  height: 44px;
+}
+
+.row {
+  min-height: 56px;
+  border-top: 1px solid var(--border);
+}
+
+.label {
+  width: 64px;
+  height: 16px;
+}
+
+.name,
+.uri {
+  height: 20px;
+}
+
+.scopes {
+  display: flex;
+  gap: 4px;
+}
+
+.scope {
+  width: 56px;
+  height: 24px;
+}
+
+.status {
+  width: 96px;
+  height: 24px;
+}
+
+.action {
+  width: 32px;
+  height: 32px;
+  justify-self: end;
+}
+
+.notice {
+  width: 600px;
+  max-width: 100%;
+  height: 20px;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .row {
+    min-height: 68px;
+  }
+
+  .action {
+    width: layout.$touch-target-size;
+    height: layout.$touch-target-size;
+  }
+}

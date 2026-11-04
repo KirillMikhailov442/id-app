@@ -1,0 +1,58 @@
+@use "@shared/styles" as breakpoints;
+
+.side {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 31vw;
+  max-width: 460px;
+  pointer-events: none;
+}
+
+.sideLeft {
+  left: 0;
+}
+
+.sideRight {
+  right: 0;
+}
+
+.side svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  display: none;
+  pointer-events: none;
+}
+
+.hero svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: breakpoints.$desktop-small) {
+  .side {
+    display: none;
+  }
+
+  .hero {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .hero svg {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .hero {
+    display: none;
+  }
+}

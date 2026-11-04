@@ -1,0 +1,15 @@
+@use "../../styles/profile-layout";
+
+.summary {
+  @include profile-layout.details;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.fields {
+  @include profile-layout.fields;
+}
