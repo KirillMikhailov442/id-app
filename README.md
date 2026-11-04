@@ -1,6 +1,14 @@
 <div align="center">
   <img src="./apps/web/public/favicon.svg" alt="Mikh SSO" width="120" height="120" />
   <h1>Mikh SSO</h1>
+  <img src="https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white" alt="pnpm" />
+  <img src="https://img.shields.io/badge/TanStack%20Router-18181B" alt="TanStack Router" />
+  <img src="https://img.shields.io/badge/Jotai-18181B" alt="Jotai" />
+  <img src="https://img.shields.io/badge/SCSS%20Modules-CC6699?logo=sass&logoColor=white" alt="SCSS Modules" />
+  <img src="https://img.shields.io/badge/shadcn%2Fui-18181B?logo=shadcnui&logoColor=white" alt="shadcn/ui" />
 </div>
 
 Mikh SSO — веб-интерфейс сервиса единого входа. Приложение предоставляет личный кабинет, экран согласия OAuth и панель администрирования. Для работы с учётными записями и сессиями требуется запущенный [Mikh SSO API](https://github.com/KirillMikhailov442/id-api).
