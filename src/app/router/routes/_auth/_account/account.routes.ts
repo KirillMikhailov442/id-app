@@ -8,6 +8,7 @@ import { SecurityPage } from "@pages/security";
 
 import { AppRoute } from "@shared/config";
 
+import { adminRoute } from "./_admin";
 import { accountLayoutRoute } from "./layout";
 
 const accountPages = {
@@ -27,4 +28,4 @@ const accountRoutes = [AppRoute.Main, AppRoute.Security, AppRoute.Apps, AppRoute
   })
 );
 
-export const accountRoute = accountLayoutRoute.addChildren(accountRoutes);
+export const accountRoute = accountLayoutRoute.addChildren([...accountRoutes, adminRoute]);

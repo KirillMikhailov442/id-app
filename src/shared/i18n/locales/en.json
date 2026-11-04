@@ -319,5 +319,107 @@
     "logout": "Sign out",
     "loggingOut": "Signing out…",
     "logoutError": "Failed to sign out. Please try again."
+  },
+  "adminUsers": {
+    "title": "Users",
+    "description": "Manage user accounts.",
+    "view": "View information",
+    "detailsTitle": "User information",
+    "detailsDescription": "Account details for {{email}}.",
+    "sessions": {
+      "revokeAll": "End all sessions",
+      "confirmAllTitle": "End all user sessions?",
+      "confirmAllDescription": "The user will be signed out on all devices and will need to sign in again.",
+      "revokedAll": "All user sessions ended",
+      "actionError": "Failed to end sessions. Please try again.",
+      "title": "User sessions",
+      "description": "Sessions for {{email}}.",
+      "columns": {
+        "id": "Session ID",
+        "browser": "Browser",
+        "os": "OS",
+        "deviceType": "Device",
+        "ip": "IP address",
+        "createdAt": "Created",
+        "lastUsedAt": "Last activity",
+        "expiresAt": "Expires",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "current": "Current",
+      "activeStatus": "Active",
+      "revokedStatus": "Revoked",
+      "expiredStatus": "Expired",
+      "revoke": "End session",
+      "confirmTitle": "End this session?",
+      "confirmDescription": "Access through this session will end. The user will need to sign in again.",
+      "revoked": "Session ended",
+      "loadError": "Failed to load user sessions.",
+      "empty": "This user has no sessions.",
+      "pagination": "User sessions pagination",
+      "total": "Total sessions: {{total}}"
+    },
+    "search": {
+      "label": "Search users",
+      "emptyTitle": "No users found",
+      "emptyDescription": "Try changing your search query."
+    },
+    "columns": {
+      "avatar": "Avatar",
+      "name": "First name",
+      "surname": "Last name",
+      "email": "Email",
+      "roles": "Roles",
+      "emailStatus": "Email status",
+      "blockedStatus": "Block status",
+      "createdAt": "Registered",
+      "actions": "Actions"
+    },
+    "roles": {
+      "USER": "User",
+      "ADMIN": "Administrator"
+    },
+    "active": "Not blocked",
+    "blocked": "Blocked",
+    "edit": "Edit profile",
+    "editDescription": "Edit the account for {{email}}.",
+    "block": "Block",
+    "unblock": "Unblock",
+    "blockTitle": "Block this user?",
+    "unblockTitle": "Unblock this user?",
+    "blockDescription": "User {{email}} will lose access to their account.",
+    "unblockDescription": "User {{email}} will be able to sign in again.",
+    "blockedToast": "User blocked",
+    "unblockedToast": "User unblocked",
+    "saved": "Profile updated",
+    "actionsLabel": "Actions for {{email}}",
+    "actionError": "Unable to save changes. Please try again.",
+    "emptyTitle": "No users yet",
+    "emptyDescription": "Registered user accounts will appear here.",
+    "loadError": "Unable to load users.",
+    "retry": "Retry",
+    "pagination": {
+      "label": "Users pagination",
+      "total": "Total users: {{total}}",
+      "page": "{{page}} of {{total}}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "apps": {
+      "title": "User applications",
+      "description": "Applications authorized by {{email}}.",
+      "columns": {
+        "clientName": "Application",
+        "scopes": "Permissions",
+        "createdAt": "Access granted",
+        "expiresAt": "Expires",
+        "revokedAt": "Access revoked",
+        "status": "Status"
+      },
+      "loadError": "Failed to load user applications.",
+      "empty": "This user has not authorized any applications yet.",
+      "pagination": "User applications pagination",
+      "total": "Total grants: {{total}}"
+    }
   }
 }

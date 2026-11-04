@@ -6,4 +6,8 @@ export interface Session {
   createdAt: string;
   lastUsedAt: string;
   isCurrent: boolean;
+  userId: string;
+  ip: string;
+  expiresAt: string;
+  revokedAt: string | null;
 }
