@@ -1,7 +1,7 @@
 import { httpClient, type HttpRequestOptions } from "@shared/api";
 import type { PaginationResponse } from "@shared/types";
 
-import type { Session, GetUserSessionsParams } from "../types";
+import type { GetUserSessionsParams, Session } from "../types";
 
 class _AdminSessionService {
   private readonly baseUrl = "/v1/users";

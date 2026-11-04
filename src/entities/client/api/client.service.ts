@@ -14,10 +14,7 @@ import type {
 class _ClientService {
   private readonly baseUrl = "/v1/clients";
 
-  public getMine(
-    params?: GetClientsParams,
-    config: HttpRequestOptions = {}
-  ): Promise<PaginationResponse<Client>> {
+  public getMine(params?: GetClientsParams, config: HttpRequestOptions = {}): Promise<PaginationResponse<Client>> {
     return httpClient.get<PaginationResponse<Client>>(`${this.baseUrl}/me`, { ...config, params });
   }
 
