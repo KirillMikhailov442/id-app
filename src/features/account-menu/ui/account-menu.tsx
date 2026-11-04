@@ -35,7 +35,7 @@ export const AccountMenu = ({ user, onLogout, isLoggingOut }: AccountMenuProps) 
       <DropdownMenuTrigger asChild>
         <Button aria-label={t("settings.account")} className={s.trigger} size="icon" type="button" variant="outline">
           <span className={s.avatar}>
-            <UserAvatar userId={user.id} />
+            <UserAvatar avatar={user.avatar} />
           </span>
         </Button>
       </DropdownMenuTrigger>

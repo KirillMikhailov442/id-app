@@ -145,6 +145,7 @@
     "confirmed": "Подтверждена",
     "unconfirmed": "Не подтверждена",
     "emailVerified": "Почта подтверждена",
+    "administrator": "Администратор",
     "emailUnverified": "Почта не подтверждена",
     "id": "Идентификатор",
     "createdAt": "Дата регистрации",

@@ -1,6 +1,6 @@
 import type { TFunction } from "i18next";
 
-import type { SessionUser } from "@shared/api";
+import { UserRole, type SessionUser } from "@shared/api";
 import { formatDate } from "@shared/lib";
 
 import type { ProfileContentData } from "../types";
@@ -12,6 +12,7 @@ export const mapProfileContent = (user: SessionUser, t: TFunction, language: str
     user,
     title: t("profile.title"),
     fullName: `${user.surname} ${user.name}`,
+    adminBadgeLabel: user.roles.includes(UserRole.Admin) ? t("profile.administrator") : null,
     emailStatus: {
       confirmed: user.emailConfirmed,
       label: t(user.emailConfirmed ? "profile.emailVerified" : "profile.emailUnverified"),

@@ -13,9 +13,13 @@ interface PageContentProps {
 export const PageContent = ({ profile }: PageContentProps) => (
   <section aria-label={profile.title} className={s.page}>
     <div className={s.profile}>
-      <UserAvatar className={s.avatar} userId={profile.user.id} />
+      <UserAvatar avatar={profile.user.avatar} className={s.avatar} />
       <div className={s.information}>
-        <ProfileHeader emailStatus={profile.emailStatus} fullName={profile.fullName} />
+        <ProfileHeader
+          adminBadgeLabel={profile.adminBadgeLabel}
+          emailStatus={profile.emailStatus}
+          fullName={profile.fullName}
+        />
         <ProfileSummary fields={profile.fields} title={profile.detailsTitle} />
         <ProfileActions user={profile.user} />
       </div>

@@ -1,29 +1,24 @@
-import { createAvatarPattern } from "../lib/create-avatar-pattern";
-import { AVATAR_BACKGROUND, AVATAR_PADDING, AVATAR_VIEWBOX_SIZE } from "../model/avatar.const";
+import { useState } from "react";
+import clsx from "clsx";
+import { UserRound } from "lucide-react";
+
+import { getAvatarUrl } from "../lib/get-avatar-url";
+import s from "./user-avatar.module.scss";
 
 interface UserAvatarProps {
-  userId: string;
+  avatar: string;
   className?: string;
 }
 
-export const UserAvatar = ({ userId, className }: UserAvatarProps) => {
-  const { cells, color } = createAvatarPattern(userId);
+export const UserAvatar = ({ avatar, className }: UserAvatarProps) => {
+  const [failedAvatar, setFailedAvatar] = useState<string | null>(null);
+  const avatarUrl = getAvatarUrl(avatar);
 
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      height="100%"
-      viewBox={`0 0 ${AVATAR_VIEWBOX_SIZE} ${AVATAR_VIEWBOX_SIZE}`}
-      width="100%"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect fill={AVATAR_BACKGROUND} height={AVATAR_VIEWBOX_SIZE} width={AVATAR_VIEWBOX_SIZE} />
-      <g fill={color}>
-        {cells.map(({ x, y }) => (
-          <rect key={`${x}:${y}`} height={1} width={1} x={x + AVATAR_PADDING} y={y + AVATAR_PADDING} />
-        ))}
-      </g>
-    </svg>
-  );
+  if (avatarUrl !== null && avatarUrl !== failedAvatar) {
+    return (
+      <img alt="" className={clsx(s.image, className)} onError={() => setFailedAvatar(avatarUrl)} src={avatarUrl} />
+    );
+  }
+
+  return <UserRound aria-hidden className={clsx(s.image, className)} />;
 };

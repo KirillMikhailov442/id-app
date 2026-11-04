@@ -145,6 +145,7 @@
     "confirmed": "Verified",
     "unconfirmed": "Not verified",
     "emailVerified": "Email verified",
+    "administrator": "Administrator",
     "emailUnverified": "Email not verified",
     "id": "User ID",
     "createdAt": "Joined",

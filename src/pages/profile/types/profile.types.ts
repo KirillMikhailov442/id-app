@@ -17,6 +17,7 @@ export interface ProfileContentData {
   user: SessionUser;
   title: string;
   fullName: string;
+  adminBadgeLabel: string | null;
   emailStatus: ProfileEmailStatus;
   detailsTitle: string;
   fields: ProfileFieldData[];
