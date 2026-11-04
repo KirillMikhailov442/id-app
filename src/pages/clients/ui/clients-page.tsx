@@ -12,7 +12,7 @@ import { ClientsContent } from "./content/clients-content";
 
 export const ClientsPage = () => {
   const { t } = useTranslation();
-  const { clientsQuery, scopesQuery, editor, credentials, refetch, isPageOutOfRange } = useClients();
+  const { clientsQuery, scopesQuery, refetch, isPageOutOfRange } = useClients();
   const isReady = clientsQuery.isSuccess && scopesQuery.isSuccess && !isPageOutOfRange;
   const content = isReady ? mapClientsContent(clientsQuery.data, t) : undefined;
 
@@ -37,7 +37,7 @@ export const ClientsPage = () => {
         isRetrying={clientsQuery.isFetching || scopesQuery.isFetching}
         onRetry={() => void refetch()}
       />
-      {isReady && <ClientsModals credentials={credentials} editor={editor} scopes={scopesQuery.data} />}
+      {isReady && <ClientsModals scopes={scopesQuery.data} />}
     </section>
   );
 };

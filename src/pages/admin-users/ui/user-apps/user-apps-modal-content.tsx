@@ -1,37 +1,25 @@
 import { useTranslation } from "react-i18next";
 
-import type { OAuthGrant } from "@entities/oauth-grant";
-
-import type { UserRecordsContent } from "../../types";
+import { useUserApps } from "../../hooks/use-user-apps";
+import { mapUserRecordsContent } from "../../lib/map-user-records-content";
 import { UserRecordsPagination } from "../user-records-pagination/user-records-pagination";
 import { UserAppsLoadError } from "./user-apps-load-error";
 import { UserAppsTable } from "./user-apps-table";
 import s from "./user-apps.module.scss";
 
 interface UserAppsModalContentProps {
-  content: UserRecordsContent<OAuthGrant> | undefined;
-  isError: boolean;
-  isFetching: boolean;
-  isPageOutOfRange: boolean;
-  isPending: boolean;
-  onPageChange: (offset: number) => void;
-  onRetry: () => void;
+  userId: string;
+  open: boolean;
 }
 
-export const UserAppsModalContent = ({
-  content,
-  isError,
-  isFetching,
-  isPageOutOfRange,
-  isPending,
-  onPageChange,
-  onRetry,
-}: UserAppsModalContentProps) => {
+export const UserAppsModalContent = ({ userId, open }: UserAppsModalContentProps) => {
   const { t } = useTranslation();
-  const loading = isPending || isPageOutOfRange;
+  const { query, isPageOutOfRange, setOffset } = useUserApps(userId, open);
+  const content = mapUserRecordsContent(query.data, "apps", t);
+  const loading = query.isPending || isPageOutOfRange;
 
-  if (isError) {
-    return <UserAppsLoadError isFetching={isFetching} onRetry={onRetry} />;
+  if (query.isError) {
+    return <UserAppsLoadError isFetching={query.isFetching} onRetry={() => void query.refetch()} />;
   }
 
   if (!loading && content?.items.length === 0) {
@@ -40,9 +28,9 @@ export const UserAppsModalContent = ({
 
   return (
     <>
-      <UserAppsTable apps={content?.items ?? []} isFetching={isFetching} loading={loading} />
+      <UserAppsTable apps={content?.items ?? []} isFetching={query.isFetching} loading={loading} />
       {content !== undefined && !isPageOutOfRange && (
-        <UserRecordsPagination data={content.pagination} disabled={isFetching} onPageChange={onPageChange} />
+        <UserRecordsPagination data={content.pagination} disabled={query.isFetching} onPageChange={setOffset} />
       )}
     </>
   );

@@ -3,7 +3,6 @@ export { ModalModel } from "./model/modal.model";
 export { ModalService } from "./service/modal.service";
 export { useModal } from "./hooks/use-modal";
 export { useModals } from "./hooks/use-modals";
-export { ModalTemplate } from "./ui/modal-template";
 export { ConfirmModal } from "./ui/confirm-modal";
 export type { ModalState, ModalParams, ModalSize, ConfirmConfig, ConfirmResult } from "./types";
 

@@ -1,26 +1,35 @@
 import { useTranslation } from "react-i18next";
 
-import { useModal } from "../../hooks/use-modal";
+import { Button } from "@id-app/shadcn";
+
 import { ModalId } from "../../model/modal.const";
 import { ModalService } from "../../service/modal.service";
-import { ModalTemplate } from "../modal-template";
+import { ModalActions } from "../modal-actions";
+import { ResponsiveModal } from "../responsive-modal";
+import s from "./confirm-modal.module.scss";
 
 export const ConfirmModal = () => {
   const { t } = useTranslation();
-  const { mounted, params, onExitComplete } = useModal(ModalId.Confirm);
-
-  if (!mounted) return null;
 
   return (
-    <ModalTemplate
-      applyText={params?.apply ?? t("confirm.apply")}
-      cancelText={params?.cancel ?? t("confirm.cancel")}
-      description={params?.description ?? t("confirm.description")}
-      id={ModalId.Confirm}
-      onApply={() => ModalService.resolveConfirm("ok")}
-      onExitComplete={onExitComplete}
-      size="s"
-      title={params?.title ?? t("confirm.title")}
-    />
+    <ResponsiveModal id={ModalId.Confirm}>
+      {({ close, params }) => ({
+        title: params?.title ?? t("confirm.title"),
+        description: params?.description ?? t("confirm.description"),
+        size: "s",
+        children: (
+          <>
+            <ModalActions className={s.actions}>
+              <Button onClick={close} type="button" variant="outline">
+                {params?.cancel ?? t("confirm.cancel")}
+              </Button>
+              <Button onClick={() => ModalService.resolveConfirm("ok")} type="button">
+                {params?.apply ?? t("confirm.apply")}
+              </Button>
+            </ModalActions>
+          </>
+        ),
+      })}
+    </ResponsiveModal>
   );
 };

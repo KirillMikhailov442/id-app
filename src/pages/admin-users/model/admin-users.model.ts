@@ -2,6 +2,7 @@ import { atom } from "jotai";
 
 import type { SessionUser } from "@shared/api";
 import { jotaiStore } from "@shared/lib";
+import { ModalId, ModalService } from "@shared/modal";
 
 import { ADMIN_USERS_INITIAL_OFFSET } from "./admin-users.const";
 import { USER_APPS_INITIAL_OFFSET } from "./user-apps.const";
@@ -11,11 +12,7 @@ class _AdminUsersModel {
   public readonly offsetAtom = atom(ADMIN_USERS_INITIAL_OFFSET);
   public readonly searchAtom = atom("");
   public readonly debouncedSearchAtom = atom("");
-  public readonly editorAtom = atom<SessionUser | null>(null);
-  public readonly detailsAtom = atom<SessionUser | null>(null);
-  public readonly sessionsUserAtom = atom<SessionUser | null>(null);
   public readonly sessionsOffsetAtom = atom(USER_SESSIONS_INITIAL_OFFSET);
-  public readonly appsUserAtom = atom<SessionUser | null>(null);
   public readonly appsOffsetAtom = atom(USER_APPS_INITIAL_OFFSET);
 
   public setSearch = (search: string): void => {
@@ -31,11 +28,11 @@ class _AdminUsersModel {
 
   public openApps = (user: SessionUser): void => {
     this.setAppsOffset(USER_APPS_INITIAL_OFFSET);
-    jotaiStore.set(this.appsUserAtom, user);
+    ModalService.openModal(ModalId.AdminUserApps, user);
   };
 
   public closeApps = (): void => {
-    jotaiStore.set(this.appsUserAtom, null);
+    ModalService.closeModal(ModalId.AdminUserApps);
   };
 
   public setAppsOffset = (offset: number): void => {
@@ -44,11 +41,11 @@ class _AdminUsersModel {
 
   public openSessions = (user: SessionUser): void => {
     this.setSessionsOffset(USER_SESSIONS_INITIAL_OFFSET);
-    jotaiStore.set(this.sessionsUserAtom, user);
+    ModalService.openModal(ModalId.AdminUserSessions, user);
   };
 
   public closeSessions = (): void => {
-    jotaiStore.set(this.sessionsUserAtom, null);
+    ModalService.closeModal(ModalId.AdminUserSessions);
   };
 
   public setSessionsOffset = (offset: number): void => {
@@ -56,11 +53,11 @@ class _AdminUsersModel {
   };
 
   public openDetails = (user: SessionUser): void => {
-    jotaiStore.set(this.detailsAtom, user);
+    ModalService.openModal(ModalId.AdminUserDetails, user);
   };
 
   public closeDetails = (): void => {
-    jotaiStore.set(this.detailsAtom, null);
+    ModalService.closeModal(ModalId.AdminUserDetails);
   };
 
   public setOffset = (offset: number): void => {
@@ -68,11 +65,11 @@ class _AdminUsersModel {
   };
 
   public openEditor = (user: SessionUser): void => {
-    jotaiStore.set(this.editorAtom, user);
+    ModalService.openModal(ModalId.AdminUserEdit, user);
   };
 
   public closeEditor = (): void => {
-    jotaiStore.set(this.editorAtom, null);
+    ModalService.closeModal(ModalId.AdminUserEdit);
   };
 
   public reset = (): void => {

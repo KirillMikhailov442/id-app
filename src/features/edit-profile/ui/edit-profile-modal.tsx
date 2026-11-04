@@ -1,11 +1,20 @@
-import { ModalId, useModal } from "@shared/modal";
+import { useTranslation } from "react-i18next";
+
+import { ModalId, ResponsiveModal } from "@shared/modal";
 
 import { EditProfileForm } from "./edit-profile-form";
 
 export const EditProfileModal = () => {
-  const { mounted, params: user, close, onExitComplete } = useModal(ModalId.ProfileEdit);
+  const { t } = useTranslation();
 
-  if (!mounted || user === undefined) return null;
-
-  return <EditProfileForm key={user.id} onClose={close} onExitComplete={onExitComplete} user={user} />;
+  return (
+    <ResponsiveModal id={ModalId.ProfileEdit} requiredParams>
+      {({ close, params: user }, setDismissDisabled) => ({
+        title: t("profile.edit.title"),
+        description: t("profile.edit.description"),
+        size: "s",
+        children: <EditProfileForm key={user.id} onClose={close} setDismissDisabled={setDismissDisabled} user={user} />,
+      })}
+    </ResponsiveModal>
+  );
 };

@@ -12,10 +12,6 @@ export const useAdminUsers = () => {
   const [offset] = useAtom(AdminUsersModel.offsetAtom);
   const [search] = useAtom(AdminUsersModel.searchAtom);
   const [debouncedSearch] = useAtom(AdminUsersModel.debouncedSearchAtom);
-  const [editor] = useAtom(AdminUsersModel.editorAtom);
-  const [details] = useAtom(AdminUsersModel.detailsAtom);
-  const [sessionsUser] = useAtom(AdminUsersModel.sessionsUserAtom);
-  const [appsUser] = useAtom(AdminUsersModel.appsUserAtom);
   const debouncedValue = useDebounce(search.trim(), ADMIN_USERS_SEARCH_DEBOUNCE_MS);
   const query = useGetAllUsers(
     { limit: ADMIN_USERS_PAGE_SIZE, offset, search: debouncedSearch || undefined },
@@ -38,10 +34,6 @@ export const useAdminUsers = () => {
 
   return {
     query,
-    editor,
-    details,
-    sessionsUser,
-    appsUser,
     search,
     debouncedSearch,
     setSearch: AdminUsersModel.setSearch,

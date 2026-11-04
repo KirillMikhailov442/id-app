@@ -20,5 +20,9 @@ export interface ConfirmConfig {
 export interface ModalParams {
   [ModalId.ChangePassword]: undefined;
   [ModalId.Confirm]: ConfirmConfig;
+  [ModalId.AdminUserApps]: SessionUser;
+  [ModalId.AdminUserDetails]: SessionUser;
+  [ModalId.AdminUserEdit]: SessionUser;
+  [ModalId.AdminUserSessions]: SessionUser;
   [ModalId.ProfileEdit]: SessionUser;
 }

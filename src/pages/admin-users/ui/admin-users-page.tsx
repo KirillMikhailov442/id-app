@@ -8,8 +8,7 @@ import { UsersSearch } from "./users-search/users-search";
 
 export const AdminUsersPage = () => {
   const { t } = useTranslation();
-  const { query, editor, details, sessionsUser, appsUser, search, debouncedSearch, setSearch, isPageOutOfRange } =
-    useAdminUsers();
+  const { query, search, debouncedSearch, setSearch, isPageOutOfRange } = useAdminUsers();
 
   return (
     <section aria-labelledby="admin-users-title" className={s.page}>
@@ -30,7 +29,7 @@ export const AdminUsersPage = () => {
         pagination={query.data?.meta}
         users={query.data?.items}
       />
-      <AdminUsersModals appsUser={appsUser} details={details} editor={editor} sessionsUser={sessionsUser} />
+      <AdminUsersModals />
     </section>
   );
 };

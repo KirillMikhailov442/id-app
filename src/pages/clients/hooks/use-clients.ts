@@ -8,8 +8,6 @@ import { CLIENTS_PAGE_SIZE } from "../model/clients.const";
 import { ClientsModel } from "../model/clients.model";
 
 export const useClients = () => {
-  const [editor] = useAtom(ClientsModel.editorAtom);
-  const [credentials] = useAtom(ClientsModel.credentialsAtom);
   const [offset] = useAtom(ClientsModel.offsetAtom);
   const clientsQuery = useGetClients({ limit: CLIENTS_PAGE_SIZE, offset }, { throwOnError: false });
   const scopesQuery = useGetAllScopes({ throwOnError: false });
@@ -31,5 +29,5 @@ export const useClients = () => {
     await Promise.all([clientsQuery.refetch(), scopesQuery.refetch()]);
   };
 
-  return { clientsQuery, scopesQuery, editor, credentials, refetch, isPageOutOfRange };
+  return { clientsQuery, scopesQuery, refetch, isPageOutOfRange };
 };
