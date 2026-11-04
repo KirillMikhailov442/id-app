@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -50,10 +51,11 @@ export default defineConfig([
       },
     },
     plugins: {
+      "@stylistic": stylistic,
       "unused-imports": unusedImports,
     },
     rules: {
-      "max-len": [
+      "@stylistic/max-len": [
         "warn",
         {
           code: 120,
@@ -67,7 +69,7 @@ export default defineConfig([
       "no-restricted-imports": noRestrictedImports(),
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/no-empty-object-type": ["error", { allowInterfaces: "with-single-extends" }],
-      "padding-line-between-statements": [
+      "@stylistic/padding-line-between-statements": [
         "error",
         {
           blankLine: "always",
@@ -95,8 +97,28 @@ export default defineConfig([
           next: ["const", "let", "var"],
         },
       ],
+      "@stylistic/lines-between-class-members": [
+        "error",
+        {
+          enforce: [
+            { blankLine: "always", prev: "*", next: "method" },
+            { blankLine: "always", prev: "method", next: "*" },
+          ],
+        },
+      ],
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-misused-promises": ["error", { checksVoidReturn: { attributes: false } }],
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/return-await": ["error", "error-handling-correctness-only"],
+      "@typescript-eslint/switch-exhaustiveness-check": "error",
+      "@typescript-eslint/no-unsafe-assignment": "error",
+      "@typescript-eslint/no-unsafe-call": "error",
+      "@typescript-eslint/no-unsafe-member-access": "error",
+      "@typescript-eslint/no-unsafe-argument": "error",
+      "@typescript-eslint/no-unsafe-return": "error",
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/no-non-null-assertion": "error",
       "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
