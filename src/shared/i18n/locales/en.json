@@ -166,21 +166,32 @@
   "apps": {
     "description": "Apps you have granted access to your data",
     "listLabel": "Connected apps",
-    "demoNotice": "Demo data. Revoking access is not available yet.",
     "access": "Access: {{permissions}}",
     "connectedSince": "Connected since",
     "permissions": {
-      "profile": "first and last name",
-      "email": "email",
-      "identifier": "user ID"
+      "identifier": "Account ID",
+      "userRead": "Read profile",
+      "userWrite": "Edit profile",
+      "offlineAccess": "Offline access"
     },
     "revoke": "Revoke access",
     "revokeLabel": "Revoke access for {{name}}",
-    "revokePlaceholder": "Revoking access is not available yet. This is a placeholder.",
     "revokeError": "Unable to revoke access. Please try again.",
     "confirm": {
       "title": "Revoke access?",
       "description": "{{name}} will lose access to your data. You will need to grant permission to connect it again."
+    },
+    "loading": "Loading apps…",
+    "loadError": "Unable to load apps.",
+    "retry": "Retry",
+    "emptyTitle": "No connected apps yet",
+    "empty": "You have not granted access to any apps yet.",
+    "revoking": "Revoking access…",
+    "revoked": "Access revoked.",
+    "status": {
+      "active": "Active",
+      "expired": "Expired",
+      "revoked": "Revoked"
     }
   },
   "clients": {

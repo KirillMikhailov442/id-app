@@ -1,7 +1,8 @@
-import type { ConnectedApp } from "../types";
+import { OAuthScope } from "@entities/oauth-grant";
 
-export const DEMO_CONNECTED_APPS: readonly ConnectedApp[] = [
-  { id: "demo-example", name: "Example App", connectedAt: "2026-10-20", permissions: ["profile", "email"] },
-  { id: "demo-notes", name: "Notes", connectedAt: "2026-09-02", permissions: ["profile"] },
-  { id: "demo-tasks", name: "Task Board", connectedAt: "2026-08-14", permissions: ["profile", "email", "identifier"] },
-];
+export const APP_PERMISSIONS = [
+  { scope: OAuthScope.OpenId, id: "identifier" },
+  { scope: OAuthScope.UserRead, id: "userRead" },
+  { scope: OAuthScope.UserWrite, id: "userWrite" },
+  { scope: OAuthScope.OfflineAccess, id: "offlineAccess" },
+] as const;
