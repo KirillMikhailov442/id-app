@@ -1,12 +1,11 @@
+import { HttpStatus, isSessionExpiredError, type FailedRequestContext } from "@id-app/api-client";
 import { CanceledError, isAxiosError, type AxiosInstance } from "axios";
 
-import { HttpStatus } from "@shared/constants";
 import { jotaiStore } from "@shared/lib";
 
-import { isSessionExpiredError } from "../client/http-error";
 import { SessionModel, type TokenResponse } from "../session";
 import { TOKEN_REFRESH_PATH } from "./token-refresh.const";
-import type { FailedRequest, FailedRequestContext } from "./types";
+import type { FailedRequest } from "./types";
 
 export class TokenRefreshService {
   private readonly client: AxiosInstance;

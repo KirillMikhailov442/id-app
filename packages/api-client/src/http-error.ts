@@ -1,7 +1,7 @@
 import { AxiosError, isAxiosError } from "axios";
 
-import { HttpStatus } from "@shared/constants";
-import type { ExceptionResponse } from "@shared/types";
+import { HttpStatus } from "./http-status.const";
+import type { ExceptionResponse } from "./types";
 
 export const isSessionExpiredError = (error: unknown): boolean =>
   isAxiosError(error) &&

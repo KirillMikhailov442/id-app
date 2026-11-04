@@ -1,1 +1,1 @@
-export type { FailedRequest, FailedRequestContext } from "./token-refresh.types";
+export type { FailedRequest } from "./token-refresh.types";
