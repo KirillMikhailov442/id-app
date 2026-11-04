@@ -23,7 +23,6 @@ const fillRegistration = async () => {
   await page.getByLabelText("Last name", { exact: true }).fill(registration.surname);
   await page.getByLabelText("Email", { exact: true }).fill(registration.email);
   await page.getByLabelText("Password", { exact: true }).fill(registration.password);
-  await page.getByRole("checkbox").click();
 };
 
 const submit = () => page.getByRole("button", { name: "Create account", exact: true }).click();
