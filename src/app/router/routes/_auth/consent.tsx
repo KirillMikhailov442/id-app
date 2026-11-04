@@ -1,6 +1,6 @@
 import { createRoute } from "@tanstack/react-router";
 
-import { ConsentPage } from "@pages/consent";
+import { ConsentPage, validateConsentSearch } from "@pages/consent";
 
 import { AppRoute } from "@shared/config";
 
@@ -10,4 +10,5 @@ export const consentRoute = createRoute({
   getParentRoute: () => authLayoutRoute,
   path: AppRoute.Consent,
   component: ConsentPage,
+  validateSearch: validateConsentSearch,
 });

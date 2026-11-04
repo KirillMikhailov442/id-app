@@ -1,1 +1,1 @@
-export type { ConsentDecision } from "./consent.types";
+export type { AuthorizeRequest, AuthorizeResponse, ConsentDecision, ConsentError } from "./consent.types";

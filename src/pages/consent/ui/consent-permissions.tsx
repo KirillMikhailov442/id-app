@@ -1,25 +1,35 @@
-import { clsx } from "clsx";
+import { ShieldQuestionMark } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { CONSENT_PERMISSIONS } from "../model/consent.const";
 import s from "./consent-page.module.scss";
 
-export const ConsentPermissions = () => {
+interface ConsentPermissionsProps {
+  scopes: string[];
+}
+
+export const ConsentPermissions = ({ scopes }: ConsentPermissionsProps) => {
   const { t } = useTranslation();
 
   return (
     <ul className={s.permissions}>
-      {CONSENT_PERMISSIONS.map(({ id, icon: Icon }) => (
-        <li key={id} className={s.permission}>
-          <span className={clsx(s.permissionIcon, s[id])}>
-            <Icon aria-hidden size={20} />
-          </span>
-          <div>
-            <strong className={s.permissionTitle}>{t(`consent.permissions.${id}.title`)}</strong>
-            <span className={s.permissionDescription}>{t(`consent.permissions.${id}.description`)}</span>
-          </div>
-        </li>
-      ))}
+      {scopes.map((scope) => {
+        const permission = CONSENT_PERMISSIONS.find((item) => item.scope === scope);
+        const id = permission?.id;
+        const Icon = permission?.icon ?? ShieldQuestionMark;
+
+        return (
+          <li key={scope} className={s.permission}>
+            <Icon aria-hidden className={s.permissionIcon} />
+            <div>
+              <strong className={s.permissionTitle}>{id ? t(`consent.permissions.${id}.title`) : scope}</strong>
+              <span className={s.permissionDescription}>
+                {id ? t(`consent.permissions.${id}.description`) : t("consent.unknownScope")}
+              </span>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };

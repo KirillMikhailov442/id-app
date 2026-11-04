@@ -68,27 +68,40 @@
     "description": "The app will receive the following data:",
     "permissionsLabel": "Requested permissions",
     "permissions": {
-      "profile": {
-        "title": "First and last name",
-        "description": "To show your profile"
-      },
-      "email": {
-        "title": "Email",
-        "description": "For contact and signing in to the app"
-      },
       "identifier": {
-        "title": "User ID",
-        "description": "To recognize you the next time you sign in"
+        "title": "Account ID",
+        "description": "Identify your account when you sign in"
+      },
+      "userRead": {
+        "title": "Read profile",
+        "description": "Read your profile information"
+      },
+      "userWrite": {
+        "title": "Edit profile",
+        "description": "Make changes to your profile"
+      },
+      "offlineAccess": {
+        "title": "Offline access",
+        "description": "Keep access when you are away"
       }
     },
     "allow": "Allow",
+    "submitting": "Submitting…",
+    "authorizeError": "Unable to grant access. Please try again.",
+    "invalidRequest": "Invalid authorization request parameters.",
     "deny": "Deny",
     "fine": "By clicking “Allow”, you consent to sharing this data with {{app}} ({{domain}}).",
     "result": {
       "allow": "Access allowed",
       "deny": "Request denied"
     },
-    "reconsider": "Change decision"
+    "reconsider": "Change decision",
+    "unknownScope": "Additional permission requested by the app",
+    "noDomain": "Domain not specified",
+    "loadError": "Could not load the app details.",
+    "missingClient": "The client_id parameter is missing.",
+    "retry": "Retry",
+    "loading": "Loading app details…"
   },
   "status": {
     "blocked": {

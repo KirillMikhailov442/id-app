@@ -1,36 +1,45 @@
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@id-app/shadcn";
 
 import { useConsent } from "../hooks/use-consent";
+import { ConsentErrorMessage } from "./consent-error-message";
 import s from "./consent-page.module.scss";
 
 export const ConsentActions = () => {
   const { t } = useTranslation();
-  const { decision, setDecision } = useConsent();
-  const ResultIcon = decision === "allow" ? CheckCircle2 : XCircle;
+  const { decision, isSubmitting, error, allow, deny } = useConsent();
 
   if (decision !== null) {
     return (
       <div className={s.result} role="status">
-        <ResultIcon aria-hidden size={24} />
+        <CheckCircle2 aria-hidden size={24} />
         <strong>{t(`consent.result.${decision}`)}</strong>
-        <Button onClick={() => setDecision(null)} size="sm" variant="outline">
-          {t("consent.reconsider")}
-        </Button>
       </div>
     );
   }
 
+  if (error !== null) {
+    return <ConsentErrorMessage error={error} />;
+  }
+
   return (
-    <div className={s.actions}>
-      <Button onClick={() => setDecision("deny")} type="button" variant="outline">
-        {t("consent.deny")}
-      </Button>
-      <Button onClick={() => setDecision("allow")} type="button">
-        {t("consent.allow")}
-      </Button>
+    <div>
+      <div aria-busy={isSubmitting} className={s.actions}>
+        <Button disabled={isSubmitting} onClick={deny} type="button" variant="outline">
+          {t("consent.deny")}
+        </Button>
+        <Button
+          disabled={isSubmitting}
+          onClick={() => {
+            void allow();
+          }}
+          type="button"
+        >
+          {t(isSubmitting ? "consent.submitting" : "consent.allow")}
+        </Button>
+      </div>
     </div>
   );
 };

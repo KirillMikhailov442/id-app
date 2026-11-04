@@ -1,12 +1,12 @@
-import { ContactRound, Mail, UserRound } from "lucide-react";
+import { CircleUserRound, Clock, UserRound, UserRoundPen } from "lucide-react";
 
-export const CONSENT_CLIENT = {
-  name: "Example App",
-  domain: "app.example.com",
-} as const;
+import { OAuthScope } from "@entities/oauth-grant";
 
+export const CONSENT_ROUTE_ID = "/_auth/consent";
+export const CONSENT_UNSAFE_REDIRECT_PROTOCOLS = ["javascript:", "data:", "vbscript:", "file:", "blob:", "about:"];
 export const CONSENT_PERMISSIONS = [
-  { id: "profile", icon: UserRound },
-  { id: "email", icon: Mail },
-  { id: "identifier", icon: ContactRound },
+  { scope: OAuthScope.OpenId, id: "identifier", icon: CircleUserRound },
+  { scope: OAuthScope.UserRead, id: "userRead", icon: UserRound },
+  { scope: OAuthScope.UserWrite, id: "userWrite", icon: UserRoundPen },
+  { scope: OAuthScope.OfflineAccess, id: "offlineAccess", icon: Clock },
 ] as const;
