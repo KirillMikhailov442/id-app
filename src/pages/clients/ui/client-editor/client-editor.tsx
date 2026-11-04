@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import type { ClientWithScopes } from "@entities/client";
+import type { Client } from "@entities/client";
 import type { Scope } from "@entities/scope";
 
 import { ModalActions, ResponsiveModal } from "@shared/modal";
@@ -28,7 +28,7 @@ import { ClientScopesField } from "../client-scopes-field";
 import s from "./client-editor.module.scss";
 
 interface ClientEditorProps {
-  client: ClientWithScopes | null;
+  client: Client | null;
   open: boolean;
   onExitComplete: () => void;
   scopes: Scope[];

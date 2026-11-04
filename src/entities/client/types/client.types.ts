@@ -4,6 +4,7 @@ export interface Client {
   name: string;
   location: string | null;
   isActive: boolean;
+  scopes: string[];
   createdAt: string;
 }
 
@@ -11,10 +12,6 @@ export interface ClientScope {
   id: string;
   name: string;
   createdAt: string;
-}
-
-export interface ClientWithScopes extends Client {
-  scopes: string[];
 }
 
 export interface CreateClientRequest {

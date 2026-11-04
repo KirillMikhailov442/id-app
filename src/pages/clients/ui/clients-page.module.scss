@@ -1,6 +1,6 @@
 @use "@shared/styles" as breakpoints;
 
-@use "../styles/clients-layout" as layout;
+@use "./styles/clients-layout" as layout;
 
 .page {
   @include layout.page;

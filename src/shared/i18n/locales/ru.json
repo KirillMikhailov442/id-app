@@ -193,6 +193,9 @@
     "created": "Клиент создан",
     "saved": "Клиент обновлён",
     "deleted": "Клиент удалён",
+    "copyId": "Копировать ID клиента",
+    "idCopied": "Client ID скопирован",
+    "copyIdError": "Не удалось скопировать ID клиента. Попробуйте ещё раз.",
     "editLabel": "Редактировать {{name}}",
     "deleteLabel": "Удалить {{name}}",
     "delete": "Удалить",
@@ -221,6 +224,16 @@
       "total": "Всего: {{total}}",
       "previous": "Назад",
       "next": "Далее"
+    },
+    "credentials": {
+      "title": "Клиент создан",
+      "description": "Сохраните данные сейчас — секрет нельзя получить позже.",
+      "clientId": "Client ID",
+      "clientSecret": "Client secret",
+      "copy": "Копировать",
+      "copied": "Скопировано в буфер обмена",
+      "copyError": "Не удалось скопировать. Попробуйте ещё раз.",
+      "done": "Готово"
     }
   },
   "security": {

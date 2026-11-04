@@ -193,6 +193,9 @@
     "created": "Client created",
     "saved": "Client updated",
     "deleted": "Client deleted",
+    "copyId": "Copy client ID",
+    "idCopied": "Client ID copied",
+    "copyIdError": "Unable to copy client ID. Please try again.",
     "editLabel": "Edit {{name}}",
     "deleteLabel": "Delete {{name}}",
     "delete": "Delete",
@@ -221,6 +224,16 @@
       "total": "Total: {{total}}",
       "previous": "Previous",
       "next": "Next"
+    },
+    "credentials": {
+      "title": "Client created",
+      "description": "Save the credentials now — the secret cannot be retrieved later.",
+      "clientId": "Client ID",
+      "clientSecret": "Client secret",
+      "copy": "Copy",
+      "copied": "Copied to clipboard",
+      "copyError": "Unable to copy. Please try again.",
+      "done": "Done"
     }
   },
   "security": {

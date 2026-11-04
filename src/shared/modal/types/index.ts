@@ -4,5 +4,3 @@ export type { ModalState, ModalParams, ModalSize, ConfirmConfig, ConfirmResult }
 export type { ModalLayer } from "./modal-layer.types";
 
 export type { ControlledModalState, ModalView, RegisteredModalView } from "./modal-view.types";
-
-export type { ModalPresenceState } from "./modal-presence.types";

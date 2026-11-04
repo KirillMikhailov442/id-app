@@ -5,18 +5,18 @@ import type { PaginationParams, PaginationResponse } from "@shared/types";
 
 import { ClientService } from "../api/client.service";
 import { ClientQueryKeys } from "../model/query-keys.const";
-import type { ClientWithScopes } from "../types";
+import type { Client } from "../types";
 
 export const useGetClients = (
   params?: PaginationParams,
-  options?: Omit<UseQueryOptions<PaginationResponse<ClientWithScopes>, Error>, "queryKey" | "queryFn">
+  options?: Omit<UseQueryOptions<PaginationResponse<Client>, Error>, "queryKey" | "queryFn">
 ) => {
   const { user, isAuthenticated } = useSession();
 
   return useQuery({
     enabled: isAuthenticated,
     ...options,
-    queryKey: [ClientQueryKeys.GetAll, user?.id, params],
-    queryFn: ({ signal }) => ClientService.getAll(params, { signal }),
+    queryKey: [ClientQueryKeys.GetMine, user?.id, params],
+    queryFn: ({ signal }) => ClientService.getMine(params, { signal }),
   });
 };

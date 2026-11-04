@@ -9,14 +9,7 @@ export const ClientsLoading = () => {
   const { t } = useTranslation();
 
   return (
-    <section aria-busy="true" aria-label={t("clients.loading")} className={s.page} role="status">
-      <div aria-hidden="true" className={s.header}>
-        <div className={s.information}>
-          <Skeleton className={s.title} />
-          <Skeleton className={s.description} />
-        </div>
-        <Skeleton className={s.create} />
-      </div>
+    <section aria-busy="true" aria-label={t("clients.loading")} className={s.loading} role="status">
       <div aria-hidden="true" className={s.tableWrapper}>
         <div className={s.table}>
           <div className={s.heading}>

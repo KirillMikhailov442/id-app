@@ -1,3 +1,5 @@
 export enum ClientQueryKeys {
-  GetAll = "clients:get-all",
+  GetById = "clients:get-by-id",
+  GetMine = "clients:get-mine",
+  ListAll = "clients:list-all",
 }

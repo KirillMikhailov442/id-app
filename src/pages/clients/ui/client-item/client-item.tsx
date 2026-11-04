@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import type { ClientWithScopes } from "@entities/client";
+import type { Client } from "@entities/client";
 
 import { Switch } from "@id-app/shadcn";
 
@@ -9,12 +9,12 @@ import { ClientActionsMenu } from "../client-actions-menu";
 import s from "./client-item.module.scss";
 
 interface ClientItemProps {
-  client: ClientWithScopes;
+  client: Client;
 }
 
 export const ClientItem = ({ client }: ClientItemProps) => {
   const { t } = useTranslation();
-  const { toggle, isPending } = useClientActions();
+  const { toggle, isPending } = useClientActions(client);
 
   return (
     <tr className={client.isActive ? undefined : s.disabled}>
@@ -39,7 +39,7 @@ export const ClientItem = ({ client }: ClientItemProps) => {
       </td>
       <td>
         <label className={s.status}>
-          <Switch checked={client.isActive} disabled={isPending} onCheckedChange={() => void toggle(client)} />
+          <Switch checked={client.isActive} disabled={isPending} onCheckedChange={() => void toggle()} />
           <span>{t(client.isActive ? "clients.enabled" : "clients.disabled")}</span>
         </label>
       </td>

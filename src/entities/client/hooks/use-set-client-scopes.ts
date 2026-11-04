@@ -18,7 +18,7 @@ export const useSetClientScopes = (options?: UseMutationOptions<ClientScope[], E
     mutationFn: (data: SetClientScopesVariables) => ClientService.setScopes(data),
     retry: false,
     onSuccess: async (...args) => {
-      await queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetAll, user?.id] });
+      await queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetMine, user?.id] });
       await onSuccess?.(...args);
     },
   });

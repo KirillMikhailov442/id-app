@@ -1,4 +1,4 @@
-import type { ClientWithScopes } from "@entities/client";
+import type { Client } from "@entities/client";
 
 export interface ClientsPaginationData {
   label: string;
@@ -13,9 +13,6 @@ export interface ClientsPaginationData {
 }
 
 export interface ClientsContentData {
-  clients: ClientWithScopes[];
-  title: string;
-  description: string;
-  createLabel: string;
+  clients: Client[];
   pagination: ClientsPaginationData;
 }

@@ -18,7 +18,7 @@ export const useCreateClient = (options?: UseMutationOptions<Client, Error, Crea
     mutationFn: (data: CreateClientRequest) => ClientService.create(data),
     retry: false,
     onSuccess: async (...args) => {
-      await queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetAll, user?.id] });
+      await queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetMine, user?.id] });
       await onSuccess?.(...args);
     },
   });

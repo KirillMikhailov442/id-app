@@ -18,7 +18,10 @@ export const useUpdateClient = (options?: UseMutationOptions<Client, Error, Upda
     mutationFn: (data: UpdateClientVariables) => ClientService.update(data),
     retry: false,
     onSuccess: async (...args) => {
-      await queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetAll, user?.id] });
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.GetMine, user?.id] }),
+        queryClient.invalidateQueries({ queryKey: [ClientQueryKeys.ListAll] }),
+      ]);
       await onSuccess?.(...args);
     },
   });

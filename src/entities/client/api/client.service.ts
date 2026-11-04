@@ -1,11 +1,11 @@
 import { httpClient, type HttpRequestOptions } from "@shared/api";
-import type { PaginationParams, PaginationResponse } from "@shared/types";
+import type { PaginationResponse } from "@shared/types";
 
 import type {
   Client,
   ClientScope,
-  ClientWithScopes,
   CreateClientRequest,
+  GetClientsParams,
   SetClientScopesRequest,
   SetClientScopesVariables,
   UpdateClientVariables,
@@ -14,24 +14,22 @@ import type {
 class _ClientService {
   private readonly baseUrl = "/v1/clients";
 
-  public async getAll(
-    params?: PaginationParams,
+  public getMine(
+    params?: GetClientsParams,
     config: HttpRequestOptions = {}
-  ): Promise<PaginationResponse<ClientWithScopes>> {
-    const page = await httpClient.get<PaginationResponse<Client>>(this.baseUrl, { ...config, params });
-    const items = await Promise.all(
-      page.items.map(async (client) => {
-        const scopes = await this.getScopes(client.id, config);
-
-        return { ...client, scopes: scopes.map(({ name }) => name) };
-      })
-    );
-
-    return { items, meta: page.meta };
+  ): Promise<PaginationResponse<Client>> {
+    return httpClient.get<PaginationResponse<Client>>(`${this.baseUrl}/me`, { ...config, params });
   }
 
-  public getScopes(id: string, config: HttpRequestOptions = {}): Promise<ClientScope[]> {
-    return httpClient.get<ClientScope[]>(`${this.baseUrl}/${encodeURIComponent(id)}/scopes`, config);
+  public async listAll(
+    params?: GetClientsParams,
+    config: HttpRequestOptions = {}
+  ): Promise<PaginationResponse<Client>> {
+    return httpClient.get<PaginationResponse<Client>>(this.baseUrl, { ...config, params });
+  }
+
+  public getById(id: string, config: HttpRequestOptions = {}): Promise<Client> {
+    return httpClient.get<Client>(`${this.baseUrl}/${encodeURIComponent(id)}`, config);
   }
 
   public create(data: CreateClientRequest): Promise<Client> {

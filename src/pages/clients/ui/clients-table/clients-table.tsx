@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 
-import type { ClientWithScopes } from "@entities/client";
+import type { Client } from "@entities/client";
 
 import { ClientItem } from "../client-item";
 import s from "./clients-table.module.scss";
 
 interface ClientsTableProps {
-  clients: ClientWithScopes[];
+  clients: Client[];
 }
 
 export const ClientsTable = ({ clients }: ClientsTableProps) => {

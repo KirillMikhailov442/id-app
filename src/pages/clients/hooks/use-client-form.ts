@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { useCreateClient, useSetClientScopes, useUpdateClient, type ClientWithScopes } from "@entities/client";
+import { useCreateClient, useSetClientScopes, useUpdateClient, type Client } from "@entities/client";
 import type { Scope } from "@entities/scope";
 
 import { toast } from "@id-app/shadcn";
@@ -12,7 +12,7 @@ import { createClientSchema, type ClientFormValues } from "../lib/client-schema"
 import { CLIENT_FORM_DEFAULT_VALUES } from "../model/clients.const";
 import { ClientsModel } from "../model/clients.model";
 
-export const useClientForm = (client: ClientWithScopes | null, scopes: Scope[]) => {
+export const useClientForm = (client: Client | null, scopes: Scope[]) => {
   const { t } = useTranslation();
   const createdId = useRef<string | null>(null);
   const schema = useMemo(
@@ -59,7 +59,12 @@ export const useClientForm = (client: ClientWithScopes | null, scopes: Scope[]) 
       clientSaved = true;
       await setClientScopes.mutateAsync({ id, scopes: selectedScopes });
       ClientsModel.closeEditor();
-      toast.success(t(client === null ? "clients.created" : "clients.saved"));
+
+      if (client === null) {
+        ClientsModel.openCredentials({ id, secret });
+      } else {
+        toast.success(t("clients.saved"));
+      }
     } catch {
       form.setError("root", { message: t(clientSaved ? "clients.scopesSaveError" : "clients.actionError") });
     }
