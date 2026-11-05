@@ -5,8 +5,6 @@ on:
     secrets:
       VPS_SSH_KEY:
         required: true
-      VPS_KNOWN_HOSTS:
-        required: true
 
 jobs:
   deploy:
@@ -32,7 +30,6 @@ jobs:
           VPS_HOST: ${{ vars.VPS_HOST }}
           VPS_USER: ${{ vars.VPS_USER }}
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
         run: |
           set -euo pipefail
           umask 077
@@ -40,17 +37,15 @@ jobs:
           : "${VPS_HOST:?Set VPS_HOST}"
           : "${VPS_USER:?Set VPS_USER}"
           : "${VPS_SSH_KEY:?Set VPS_SSH_KEY}"
-          : "${VPS_KNOWN_HOSTS:?Set VPS_KNOWN_HOSTS}"
 
           printf '%s\n' "$VPS_SSH_KEY" > "$RUNNER_TEMP/vps_key"
-          printf '%s\n' "$VPS_KNOWN_HOSTS" > "$RUNNER_TEMP/vps_known_hosts"
 
           target="$VPS_USER@$VPS_HOST"
           ssh_options=(
             -i "$RUNNER_TEMP/vps_key"
             -o BatchMode=yes
             -o IdentitiesOnly=yes
-            -o StrictHostKeyChecking=yes
+            -o StrictHostKeyChecking=accept-new
             -o "UserKnownHostsFile=$RUNNER_TEMP/vps_known_hosts"
           )
 
