@@ -25,4 +25,3 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     secrets:
       VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-      VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
